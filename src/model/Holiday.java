@@ -14,6 +14,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import org.joda.time.LocalDate;
 
 /**
  *
@@ -30,17 +31,17 @@ public class Holiday {
     private String name;
     
     @XmlElement(name="mettol")
-    @XmlJavaTypeAdapter(DateTimeAdapter.class)
-    private Date from;
+    @XmlJavaTypeAdapter(LocalDateAdapter.class)
+    private LocalDate from;
     
     @XmlElement(name="meddig")
-    @XmlJavaTypeAdapter(DateTimeAdapter.class)
-    private Date to;
+    @XmlJavaTypeAdapter(LocalDateAdapter.class)
+    private LocalDate to;
 
     public Holiday() {
     }
 
-    public Holiday(int id, String name, Date from, Date to) {
+    public Holiday(int id, String name, LocalDate from, LocalDate to) {
         this.id = id;
         this.name = name;
         this.from = from;
@@ -63,19 +64,19 @@ public class Holiday {
         this.name = name;
     }
 
-    public Date getFrom() {
+    public LocalDate getFrom() {
         return from;
     }
 
-    public void setFrom(Date from) {
+    public void setFrom(LocalDate from) {
         this.from = from;
     }
 
-    public Date getTo() {
+    public LocalDate getTo() {
         return to;
     }
 
-    public void setTo(Date to) {
+    public void setTo(LocalDate to) {
         this.to = to;
     }
 
