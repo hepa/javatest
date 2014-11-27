@@ -17,16 +17,15 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  *
  * @author zsolti
  */
-
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Person {
-    
+
     @XmlAttribute
     private int id;
-    
-    @XmlElement(name="nev")
+
+    @XmlElement(name = "nev")
     private String name;
-    
+
     @XmlElement
     private String email;
 
@@ -46,7 +45,7 @@ public class Person {
     public void setId(int id) {
         this.id = id;
     }
-    
+
     public String getName() {
         return name;
     }

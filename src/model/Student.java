@@ -19,15 +19,15 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  * @author zsolti
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name="diak")
-public class Student extends Person{
-  
-    @XmlElementWrapper(name="jegyei")
-    @XmlElement(name="jegy")
-  private ArrayList<Mark> marks;
+@XmlRootElement(name = "diak")
+public class Student extends Person {
+
+    @XmlElementWrapper(name = "jegyei")
+    @XmlElement(name = "jegy")
+    private ArrayList<Mark> marks;
 
     public Student() {
-        marks=new ArrayList<>();
+        marks = new ArrayList<>();
     }
 
     public Student(ArrayList<Mark> marks, int id, String name, String email) {
@@ -47,5 +47,5 @@ public class Student extends Person{
     public String toString() {
         return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
-  
+
 }
