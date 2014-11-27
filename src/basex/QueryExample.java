@@ -17,6 +17,7 @@ import org.basex.core.BaseXException;
 import org.basex.core.Context;
 import org.basex.core.cmd.XQuery;
 import org.basex.query.value.node.ANode;
+import util.BaseXClient;
 import util.JAXBUtil;
 
 /**

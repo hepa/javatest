@@ -12,3 +12,4 @@
 hs_err_pid*
 /nbproject/private/
 !/src/main/resources/joda-time-2.4.jar
+/build/
