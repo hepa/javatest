@@ -25,7 +25,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 public class SchoolYear {
     
     @XmlAttribute
-    private int id;
+    private String id;
     
     @XmlElement(name="mettol")
     private Date from;
@@ -41,18 +41,18 @@ public class SchoolYear {
         holidays=new ArrayList<>();
     }
 
-    public SchoolYear(int id, Date from, Date to, ArrayList<Holiday> holidays) {
+    public SchoolYear(String id, Date from, Date to, ArrayList<Holiday> holidays) {
         this.id = id;
         this.from = from;
         this.to = to;
         this.holidays = holidays;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
