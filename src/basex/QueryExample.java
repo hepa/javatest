@@ -5,6 +5,7 @@
  */
 package basex;
 
+import util.BaseXClient;
 import static basex.RunQueries.query;
 import java.io.*;
 import java.util.logging.Level;
@@ -44,7 +45,7 @@ public final class QueryExample {
             BaseXClient session = new BaseXClient("localhost", 1984, "admin", "admin");
         try {
 // create query instance
-            final String input = "for $x in doc('rendszer')/json/diakok/diak return $x";
+            final String input = "for $x in doc('rendszer')/rendszer/diakok/diak return $x";
             final BaseXClient.Query query = session.query(input);
 // loop through all results
             while (query.more()) {

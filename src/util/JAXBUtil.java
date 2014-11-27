@@ -66,7 +66,7 @@ public class JAXBUtil {
 		}
 	}
 	
-	public static <T> ArrayList<T> fromXMLElement (Class<T> clazz, String[] xmlElements ) throws JAXBException {
+	public static <T> ArrayList<T> fromXMLElement (Class<T> clazz, ArrayList<String> xmlElements ) throws JAXBException {
 		try {
 			JAXBContext	context = JAXBContext.newInstance(clazz);
 			Unmarshaller	unmarshaller = context.createUnmarshaller();

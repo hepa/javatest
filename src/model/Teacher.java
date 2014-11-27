@@ -8,7 +8,6 @@ package model;
 import java.util.ArrayList;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -59,6 +58,4 @@ public class Teacher extends Person{
     public String toString() {
      return ReflectionToStringBuilder.toString(this);
     }
-    
-    
 }

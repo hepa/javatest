@@ -5,7 +5,7 @@
  */
 package tests;
 
-import basex.BaseXClient;
+import util.BaseXClient;
 import java.io.IOException;
 import javax.xml.bind.JAXBException;
 import model.Student;
@@ -56,7 +56,7 @@ public class Diakok {
         BaseXClient.Query query = session.query(input);        
         while (query.more()) {
             volt = true;
-            String xml = query.next();            
+            String xml = query.next();
             Student s = JAXBUtil.fromXMLElement(Student.class, xml);            
             assertEquals(s.getName(), "Reményi Szabolcs");
             assertEquals(s.getEmail(), "szabolcs.remenyi@gmail.com");
@@ -64,7 +64,7 @@ public class Diakok {
         assertEquals(volt, true);
         
         volt = false;
-        input = "for $x in doc('rendszer')/rendszer/diakok/diak[@id='3'] return $x";
+        input = "for $x in doc('rendszer')/rendszer/diakok/diak[@id='2'] return $x";
         query = session.query(input);        
         while (query.more()) {
             volt = true;
