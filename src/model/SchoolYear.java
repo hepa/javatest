@@ -13,6 +13,8 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
  *
@@ -80,7 +82,7 @@ public class SchoolYear {
 
     @Override
     public String toString() {
-        return "SchoolYear{" + "id=" + id + ", from=" + from + ", to=" + to + ", holidays=" + holidays + '}';
+        return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
     
 }
