@@ -30,6 +30,9 @@ public class Room {
     @XmlElement(name="ferohely")
     private int ferohely;
 
+    public Room() {
+    }    
+    
     public Room(int id, boolean labor, boolean projektor, int ferohely) {
         this.id = id;
         this.labor = labor;

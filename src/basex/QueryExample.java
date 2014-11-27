@@ -11,7 +11,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.bind.JAXBException;
 import model.Mark;
+import model.Room;
 import model.Student;
+import model.Teacher;
 import org.basex.core.BaseXException;
 import org.basex.core.Context;
 import org.basex.core.cmd.XQuery;
@@ -34,62 +36,22 @@ public final class QueryExample {
      *
      * @param args command-line arguments
      */
-    public static void main(final String[] args) {
+    public static void main(final String[] args) throws IOException, JAXBException {
         // print exception
-    
 
-    
-        try {
 // create session
-            BaseXClient session = new BaseXClient("localhost", 1984, "admin", "admin");
-        try {
+        BaseXClient session = new BaseXClient("localhost", 1984, "admin", "admin");
+
 // create query instance
-            final String input = "for $x in doc('rendszer')/json/diakok/diak return $x";
-            final BaseXClient.Query query = session.query(input);
-// loop through all results
-            while (query.more()) {
-                String xml = query.next();
-System.out.println(xml);
-                try {
-                    Student s = JAXBUtil.fromXMLElement(Student.class, xml);
-                    System.out.println(s);
-                } catch (JAXBException ex) {
-                    System.out.println(ex.getMessage());
-                }
-            }
-String jegy = "<jegy id=\"1\">\n" +
-"      <tantargy>K001</tantargy>\n" +
-"      <tanev>2014/2015</tanev>\n" +
-"      <erdemjegy>5</erdemjegy>\n" +
-"    </jegy>";
+        String input = "for $x in doc('rendszer')/rendszer/termek/terem[@id='201'] return $x";
+        BaseXClient.Query query = session.query(input);
+        while (query.more()) {
 
-                try {
-                    Mark m = JAXBUtil.fromXMLElement(Mark.class, jegy);
-                    System.out.println(m);
-                } catch (JAXBException ex) {
-                    System.out.println(ex.getMessage());
-                }
-            
-            // print query info
-            System.out.println(query.info());
-// close query instance
-            query.close();
+            String xml = query.next();
+            Room t = JAXBUtil.fromXMLElement(Room.class, xml);
 
-          
-
-        } catch (final IOException ex) {
-// print exception
-            ex.printStackTrace();
         }
-// close session
-        session.close();
-    }
-    catch (final IOException ex
 
-    
-        ) {
-// print exception
-            ex.printStackTrace();
+        query.close();
     }
-}
 }
