@@ -11,6 +11,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -29,9 +30,11 @@ public class Holiday {
     private String name;
     
     @XmlElement(name="mettol")
+    @XmlJavaTypeAdapter(DateTimeAdapter.class)
     private Date from;
     
     @XmlElement(name="meddig")
+    @XmlJavaTypeAdapter(DateTimeAdapter.class)
     private Date to;
 
     public Holiday() {
