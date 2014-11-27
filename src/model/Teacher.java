@@ -19,18 +19,18 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
  * @author zsolti
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name="tanar")
-public class Teacher extends Person{
-    
-    @XmlElement(name="osztalya")
+@XmlRootElement(name = "tanar")
+public class Teacher extends Person {
+
+    @XmlElement(name = "osztaly")
     private Class form;
-            
-    @XmlElementWrapper(name="fogadoorak")
-    @XmlElement(name="fogadoora")
+
+    @XmlElementWrapper(name = "fogadoorak")
+    @XmlElement(name = "fogadoora")
     private ArrayList<ConsultingHour> consultingHours;
 
     public Teacher() {
-        consultingHours= new ArrayList<>();
+        consultingHours = new ArrayList<>();
     }
 
     public Teacher(int id, Class form, ArrayList<ConsultingHour> consultingHours, String name, String email) {
@@ -57,8 +57,7 @@ public class Teacher extends Person{
 
     @Override
     public String toString() {
-     return ReflectionToStringBuilder.toString(this);
+        return ReflectionToStringBuilder.toString(this);
     }
-    
-    
+
 }

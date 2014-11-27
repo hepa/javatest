@@ -22,6 +22,7 @@ import org.joda.time.DateTime;
 public class ConsultingHour {
 
     @XmlElement(name = "nap")
+    @XmlJavaTypeAdapter(DayAdapter.class)
     private Days day;
 
     @XmlElement(name = "idopont")

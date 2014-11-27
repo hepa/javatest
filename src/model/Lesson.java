@@ -24,9 +24,13 @@ public class Lesson {
 
     @XmlAttribute
     private int id;
+    
+    @XmlElement(name = "nap")
+    @XmlJavaTypeAdapter(DayAdapter.class)
+    private Days day;
 
     @XmlElement(name = "idopont")
-    @XmlJavaTypeAdapter(DayAdapter.class)
+    @XmlJavaTypeAdapter(DateTimeAdapter.class)
     private DateTime time;
 
     @XmlElement(name = "tantargy")

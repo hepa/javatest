@@ -39,7 +39,7 @@
         <tanar id="1">
             <nev>Kiss László</nev>
             <email>kiss.laszlo@gmail.com</email>
-            <osztalya>9/D-14/15</osztalya>            
+            <osztaly id="9/D-14/15"></osztaly>            
             <fogadoorak>
                 <fogadoora>
                     <nap>hétfő</nap>                    

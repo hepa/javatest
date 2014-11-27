@@ -9,8 +9,11 @@ package tests;
 import basex.BaseXClient;
 import java.io.IOException;
 import javax.xml.bind.JAXBException;
+import model.Days;
 import model.Student;
+import model.Class;
 import model.Teacher;
+import org.joda.time.DateTime;
 import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.*;
@@ -60,9 +63,12 @@ public class Tanarok {
             volt = true;
             String xml = query.next();            
             Teacher t = JAXBUtil.fromXMLElement(Teacher.class, xml);            
-            assertEquals(t.getName(), "Kiss László");
-            assertEquals(t.getEmail(), "kiss.laszlo@gmail.com");
-            assertEquals(t.getClass(), "9/D-14/15");
+            assertEquals("Kiss László", t.getName());
+            assertEquals("kiss.laszlo@gmail.com", t.getEmail());
+            assertEquals("9/D-14/15", t.getForm().getId());
+            assertEquals(t.getConsultingHours().size(), 2);
+            assertEquals(t.getConsultingHours().get(0).getDay(), Days.HÉTFŐ);
+            assertEquals(t.getConsultingHours().get(0).getHour(), new DateTime(9));
         }        
         assertEquals("Nem volt ilyen tanár. (Kiss László)", volt, true);
         
