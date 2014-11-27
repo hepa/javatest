@@ -9,6 +9,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.joda.time.DateTime;
 
@@ -19,11 +20,12 @@ import org.joda.time.DateTime;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "fogadoora")
 public class ConsultingHour {
- 
-    @XmlElement(name="nap")
+
+    @XmlElement(name = "nap")
     private Days day;
-    
-    @XmlElement(name="idopont")
+
+    @XmlElement(name = "idopont")
+    @XmlJavaTypeAdapter(DateTimeAdapter.class)
     private DateTime hour;
 
     public ConsultingHour() {
