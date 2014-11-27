@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rendszer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="rendszer.xsd">
+<rendszer>
     <tanevek>
         <tanev id="2014/2015">
             <mettol> 2014-09-01 </mettol>
             <meddig> 2015-06-30 </meddig>
             <szunetek>
-                <szunet>
+                <szunet id="1">
                     <nev>Őszi szünet</nev>
                     <mettol> 2014-10-27 </mettol>
                     <meddig> 2014-10-31 </meddig>
                 </szunet>
-                <szunet>
+                <szunet id="2">
                     <nev>Téli szünet</nev>
                     <mettol> 2014-12-22 </mettol>
                     <meddig> 2015-01-04 </meddig>
@@ -20,15 +19,15 @@
         </tanev>
     </tanevek>
     <diakok>
-        <diak id="dRSZ">
+        <diak id="1">
             <nev>Reményi Szabolcs</nev>
             <email>szabolcs.remenyi@gmail.com</email>            
         </diak>
-        <diak id="dFZS">
+        <diak id="2">
             <nev>Fehérvári Zsolt</nev>
             <email>zsoltty91@hotmail.com</email>
             <jegyei>
-                <jegy>
+                <jegy id="1">
                     <tantargy>K001</tantargy>
                     <tanev>2014/2015</tanev>                    
                     <erdemjegy>5</erdemjegy>
@@ -37,7 +36,7 @@
         </diak>
     </diakok>
     <tanarok>
-        <tanar id="tKL">
+        <tanar id="1">
             <nev>Kiss László</nev>
             <email>kiss.laszlo@gmail.com</email>
             <osztalya>9/D-14/15</osztalya>            
@@ -52,7 +51,7 @@
                 </fogadoora>
             </fogadoorak>
         </tanar>
-        <tanar id="tKT">
+        <tanar id="2">
             <nev>Komoróczy Tamás</nev>
             <email>tamas.komoroczy@gmail.com</email>
             <fogadoorak>
@@ -84,24 +83,24 @@
         <osztaly id="9/D-14/15">
             <nev>9/D</nev>
             <tanev>2014/2015</tanev>
-            <osztalyfonok>tKL</osztalyfonok>
+            <osztalyfonok>1</osztalyfonok>
             <diakok>
-                <diak>dRSZ</diak>
-                <diak>dFZS</diak>
+                <diak>1</diak>
+                <diak>2</diak>
             </diakok>
             <orarend>
                 <ora>                    
                     <nap>hétfő</nap>
                     <idopont>10:00:00</idopont>
                     <tantargy>K001</tantargy>
-                    <tanar>tKL</tanar>
+                    <tanar>1</tanar>
                     <terem>202</terem>
                 </ora>
                 <ora>
                     <nap>hétfő</nap>
                     <idopont>12:00:00</idopont>
                     <tantargy>K003</tantargy>
-                    <tanar>tKT</tanar>
+                    <tanar>2</tanar>
                     <terem>201</terem>
                 </ora>
             </orarend>

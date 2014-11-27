@@ -64,7 +64,7 @@ public class Diakok {
         assertEquals(volt, true);
         
         volt = false;
-        input = "for $x in doc('rendszer')/rendszer/diakok/diak[@id='2'] return $x";
+        input = "for $x in doc('rendszer')/rendszer/diakok/diak[@id='3'] return $x";
         query = session.query(input);        
         while (query.more()) {
             volt = true;
@@ -73,7 +73,7 @@ public class Diakok {
             assertEquals(s.getName(), "Fehérvári Zsolt");
             assertEquals(s.getEmail(), "zsoltty91@hotmail.com");
         }        
-        assertEquals(volt, true);
+        assertEquals("Nem volt ilyen diak.", volt, true);
         query.close();
     }
 }
