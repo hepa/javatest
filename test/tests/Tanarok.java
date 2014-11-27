@@ -6,7 +6,7 @@
 
 package tests;
 
-import basex.BaseXClient;
+import util.BaseXClient;
 import java.io.IOException;
 import javax.xml.bind.JAXBException;
 import model.Days;
