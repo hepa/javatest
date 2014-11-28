@@ -6,15 +6,21 @@
 package basex;
 
 import static basex.RunQueries.query;
+import dao.RoomDAO;
 import dao.SchoolYearDAO;
+import dao.TeacherDAO;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.bind.JAXBException;
 import model.Mark;
+import model.Room;
 import model.SchoolYear;
 import model.Student;
 import model.Teacher;
+import model.Class;
+import model.Lesson;
 import org.apache.log4j.PropertyConfigurator;
 import org.basex.core.BaseXException;
 import org.basex.core.Context;
@@ -44,26 +50,56 @@ public final class QueryExample {
         //configure log4j
         PropertyConfigurator.configure("src\\main\\resources\\log4j.properties");
         
-        
+        /*
         try {
             SchoolYear f = new SchoolYearDAO().find("2014/2015");
             System.out.println(f);
+            
+            Teacher t = new TeacherDAO().find(1);
+            System.out.println(t);
+            Class c=new model.Class();
+            c.setId("9/D-14/15");
+            t.setForm(c);
+            JAXBUtil.toXML(t, System.out);
+            
+            System.out.println(JAXBUtil.fromXMLElement(Teacher.class, "<tanar id=\"1\">\n" +
+"    <nev>Kiss László</nev>\n" +
+"    <email>kiss.laszlo@gmail.com</email>\n" +
+"    <osztaly id='9/D-14/15'></osztaly>\n" +
+"    <fogadoorak>\n" +
+"        <fogadoora>\n" +
+"            <nap>hétfő</nap>\n" +
+"            <idopont>08:00:00</idopont>\n" +
+"        </fogadoora>\n" +
+"        <fogadoora>\n" +
+"            <nap>kedd</nap>\n" +
+"            <idopont>08:00:00</idopont>\n" +
+"        </fogadoora>\n" +
+"    </fogadoorak>\n" +
+"</tanar>"));
+            
+            Room r = new RoomDAO().find(201);
+            System.out.println(r);
+            
+            ArrayList<Room> rooms = new RoomDAO().findAll();
+            System.out.println(rooms.toString());
+            
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
-        }
+        }*/
 
 // create session
         BaseXClient session = new BaseXClient("localhost", 1984, "admin", "admin");
 
 // create query instance
-        String input = "for $x in doc('rendszer')/rendszer/tanevek/tanev return $x";
+        String input = "for $x in doc('rendszer')/rendszer/osztalyok/osztaly/orarend/ora[@id='1'] return $x";
 
         BaseXClient.Query query = session.query(input);
         while (query.more()) {
 
             String xml = query.next();
             System.out.println(xml);
-            SchoolYear t = JAXBUtil.fromXMLElement(SchoolYear.class, xml);
+            Lesson t = JAXBUtil.fromXMLElement(Lesson.class, xml);
             System.out.println(t);
             JAXBUtil.toXML(t, System.out);
         }

@@ -5,3 +5,115 @@
 18:42:37,852 DEBUG Database:55 - getInstance()
 18:42:37,852 DEBUG Database:57 - Create instance.
 18:42:37,892 DEBUG DefaultDAO:57 - Query: for $x in doc('rendszer')/rendszer/tanevek/tanev[@id='2014/2015'] return $x
+18:45:51,900 DEBUG Database:55 - getInstance()
+18:45:51,900 DEBUG Database:57 - Create instance.
+18:45:51,940 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/tanevek/tanev[@id='2014/2015']
+18:50:49,542 DEBUG Database:55 - getInstance()
+18:50:49,542 DEBUG Database:57 - Create instance.
+18:50:49,582 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/tanevek/tanev[@id='2014/2015']
+18:50:49,932 DEBUG Database:55 - getInstance()
+18:50:49,952 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/tanarok/tanar[@id='1']
+18:52:53,854 DEBUG Database:55 - getInstance()
+18:52:53,864 DEBUG Database:57 - Create instance.
+18:52:53,894 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/tanevek/tanev[@id='2014/2015']
+18:52:54,144 DEBUG Database:55 - getInstance()
+18:52:54,154 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/tanarok/tanar[@id='1']
+18:53:11,466 DEBUG Database:55 - getInstance()
+18:53:11,466 DEBUG Database:57 - Create instance.
+18:53:11,506 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/tanevek/tanev[@id='2014/2015']
+18:53:11,756 DEBUG Database:55 - getInstance()
+18:53:11,756 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/tanarok/tanar[@id='1']
+18:59:24,009 DEBUG Database:55 - getInstance()
+18:59:24,009 DEBUG Database:57 - Create instance.
+18:59:24,039 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/tanevek/tanev[@id='2014/2015']
+18:59:24,339 DEBUG Database:55 - getInstance()
+18:59:24,339 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/tanarok/tanar[@id='1']
+18:59:24,399 DEBUG Database:55 - getInstance()
+18:59:24,399 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/termek/terem[@id='201']
+19:17:42,503 DEBUG Database:55 - getInstance()
+19:17:42,508 DEBUG Database:57 - Create instance.
+19:17:42,547 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/tanevek/tanev[@id='2014/2015']
+19:17:42,850 DEBUG Database:55 - getInstance()
+19:17:42,854 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/tanarok/tanar[@id='1']
+19:17:42,913 DEBUG Database:55 - getInstance()
+19:17:42,916 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/termek/terem[@id='201']
+19:17:42,927 DEBUG Database:55 - getInstance()
+19:17:42,930 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/termek/terem
+21:05:12,654 DEBUG Database:55 - getInstance()
+21:05:12,654 DEBUG Database:57 - Create instance.
+21:05:12,694 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/tanevek/tanev[@id='2014/2015']
+21:05:13,004 DEBUG Database:55 - getInstance()
+21:05:13,014 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/tanarok/tanar[@id='1']
+21:05:57,456 DEBUG Database:55 - getInstance()
+21:05:57,456 DEBUG Database:57 - Create instance.
+21:05:57,496 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/tanevek/tanev[@id='2014/2015']
+21:05:57,876 DEBUG Database:55 - getInstance()
+21:05:57,895 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/tanarok/tanar[@id='1']
+21:06:08,158 DEBUG Database:55 - getInstance()
+21:06:08,158 DEBUG Database:57 - Create instance.
+21:06:08,198 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/tanevek/tanev[@id='2014/2015']
+21:06:08,458 DEBUG Database:55 - getInstance()
+21:06:08,458 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/tanarok/tanar[@id='1']
+21:06:08,558 DEBUG Database:55 - getInstance()
+21:06:08,558 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/termek/terem[@id='201']
+21:06:08,578 DEBUG Database:55 - getInstance()
+21:06:08,578 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/termek/terem
+21:10:10,425 DEBUG Database:55 - getInstance()
+21:10:10,425 DEBUG Database:57 - Create instance.
+21:10:10,465 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/tanevek/tanev[@id='2014/2015']
+21:10:11,011 DEBUG Database:55 - getInstance()
+21:10:11,021 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/tanarok/tanar[@id='1']
+21:10:11,221 DEBUG Database:55 - getInstance()
+21:10:11,225 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/termek/terem[@id='201']
+21:10:11,235 DEBUG Database:55 - getInstance()
+21:10:11,235 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/termek/terem
+21:13:57,121 DEBUG Database:55 - getInstance()
+21:13:57,121 DEBUG Database:57 - Create instance.
+21:13:57,151 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/tanevek/tanev[@id='2014/2015']
+21:13:57,465 DEBUG Database:55 - getInstance()
+21:13:57,465 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/tanarok/tanar[@id='1']
+21:13:57,709 DEBUG Database:55 - getInstance()
+21:13:57,712 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/termek/terem[@id='201']
+21:13:57,719 DEBUG Database:55 - getInstance()
+21:13:57,719 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/termek/terem
+21:14:56,259 DEBUG Database:55 - getInstance()
+21:14:56,269 DEBUG Database:57 - Create instance.
+21:14:56,299 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/tanevek/tanev[@id='2014/2015']
+21:14:56,659 DEBUG Database:55 - getInstance()
+21:14:56,659 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/tanarok/tanar[@id='1']
+21:14:56,811 DEBUG Database:55 - getInstance()
+21:14:56,811 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/termek/terem[@id='201']
+21:14:56,821 DEBUG Database:55 - getInstance()
+21:14:56,821 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/termek/terem
+21:16:31,414 DEBUG Database:55 - getInstance()
+21:16:31,424 DEBUG Database:57 - Create instance.
+21:16:31,454 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/tanevek/tanev[@id='2014/2015']
+21:16:31,704 DEBUG Database:55 - getInstance()
+21:16:31,704 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/tanarok/tanar[@id='1']
+21:16:31,814 DEBUG Database:55 - getInstance()
+21:16:31,814 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/termek/terem[@id='201']
+21:16:31,824 DEBUG Database:55 - getInstance()
+21:16:31,834 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/termek/terem
+21:18:54,195 DEBUG Database:55 - getInstance()
+21:18:54,195 DEBUG Database:57 - Create instance.
+21:18:54,225 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/tanevek/tanev[@id='2014/2015']
+21:18:54,475 DEBUG Database:55 - getInstance()
+21:18:54,485 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/tanarok/tanar[@id='1']
+21:19:27,485 DEBUG Database:55 - getInstance()
+21:19:27,485 DEBUG Database:57 - Create instance.
+21:19:27,525 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/tanevek/tanev[@id='2014/2015']
+21:19:27,775 DEBUG Database:55 - getInstance()
+21:19:27,775 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/tanarok/tanar[@id='1']
+21:19:27,937 DEBUG Database:55 - getInstance()
+21:19:27,937 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/termek/terem[@id='201']
+21:19:27,952 DEBUG Database:55 - getInstance()
+21:19:27,955 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/termek/terem
+21:20:00,841 DEBUG Database:55 - getInstance()
+21:20:00,851 DEBUG Database:57 - Create instance.
+21:20:00,891 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/tanevek/tanev[@id='2014/2015']
+21:20:01,161 DEBUG Database:55 - getInstance()
+21:20:01,161 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/tanarok/tanar[@id='1']
+21:20:01,281 DEBUG Database:55 - getInstance()
+21:20:01,281 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/termek/terem[@id='201']
+21:20:01,291 DEBUG Database:55 - getInstance()
+21:20:01,291 DEBUG DefaultDAO:57 - Query: doc('rendszer')/rendszer/termek/terem

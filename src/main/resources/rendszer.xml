@@ -41,11 +41,11 @@
             <email>kiss.laszlo@gmail.com</email>
             <osztaly id="9/D-14/15"></osztaly>            
             <fogadoorak>
-                <fogadoora>
+                <fogadoora id="1">
                     <nap>hétfő</nap>                    
                     <idopont>08:00:00</idopont>
                 </fogadoora>
-                <fogadoora>
+                <fogadoora id="2">
                     <nap>kedd</nap>
                     <idopont>08:00:00</idopont>
                 </fogadoora>
@@ -55,7 +55,7 @@
             <nev>Komoróczy Tamás</nev>
             <email>tamas.komoroczy@gmail.com</email>
             <fogadoorak>
-                <fogadoora>
+                <fogadoora id="3">
                     <nap>szerda</nap>
                     <idopont>12:00:00</idopont>
                 </fogadoora>
@@ -83,25 +83,25 @@
         <osztaly id="9/D-14/15">
             <nev>9/D</nev>
             <tanev>2014/2015</tanev>
-            <osztalyfonok>1</osztalyfonok>
+            <tanar id="1"/>
             <diakok>
-                <diak>1</diak>
-                <diak>2</diak>
+                <diak id="1"/>
+                <diak id="2"/>
             </diakok>
             <orarend>
-                <ora>                    
+                <ora id="1">                    
                     <nap>hétfő</nap>
                     <idopont>10:00:00</idopont>
-                    <tantargy>K001</tantargy>
-                    <tanar>1</tanar>
-                    <terem>202</terem>
+                    <tantargy id="K001"/>
+                    <tanar id="1"/>
+                    <terem id="202"/>
                 </ora>
-                <ora>
+                <ora id="2">
                     <nap>hétfő</nap>
                     <idopont>12:00:00</idopont>
-                    <tantargy>K003</tantargy>
-                    <tanar>2</tanar>
-                    <terem>201</terem>
+                    <tantargy id="K003"/>
+                    <tanar id="2"/>
+                    <terem id="201"/>
                 </ora>
             </orarend>
         </osztaly>

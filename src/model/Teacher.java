@@ -5,11 +5,16 @@
  */
 package model;
 
+import dao.TeacherDAO;
+import java.io.IOException;
 import java.util.ArrayList;
+import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
@@ -21,7 +26,7 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 @XmlRootElement(name = "tanar")
 public class Teacher extends Person {
 
-    @XmlElement(name = "osztaly")
+    @XmlElement(name = "id")
     private Class form;
 
     @XmlElementWrapper(name = "fogadoorak")
@@ -52,6 +57,22 @@ public class Teacher extends Person {
 
     public void setConsultingHours(ArrayList<ConsultingHour> consultingHours) {
         this.consultingHours = consultingHours;
+    }
+
+    public static Teacher find(int id) throws JAXBException, IOException {
+        return new TeacherDAO().find(id);
+    }
+
+    public static ArrayList<Teacher> findAll() throws JAXBException, IOException {
+        return new TeacherDAO().findAll();
+    }
+
+    public void add() {
+        new TeacherDAO(this).add();
+    }
+
+    public void remove() {
+        new TeacherDAO(this).remove();
     }
 
     @Override

@@ -8,38 +8,38 @@ package dao;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.xml.bind.JAXBException;
-import model.SchoolYear;
+import model.Room;
 import org.apache.commons.lang3.NotImplementedException;
 
 /**
  *
  * @author zsolti
  */
-public class SchoolYearDAO extends DefaultDAO<SchoolYear> {
+public class RoomDAO extends DefaultDAO<Room> {
 
-    private SchoolYear schoolYear;
+    private Room room;
 
-    public SchoolYearDAO() {
-        super(SchoolYear.class);
-        schoolYear = null;
+    public RoomDAO() {
+        super(Room.class);
+        room = null;
     }
 
-    public SchoolYearDAO(SchoolYear schoolYear) {
-        super(SchoolYear.class);
-        this.schoolYear = schoolYear;
+    public RoomDAO(Room room) {
+        super(Room.class);
+        this.room = room;
     }
 
-    public SchoolYear find(String id) throws JAXBException, IOException {
+    public Room find(int id) throws JAXBException, IOException {
         try {
-            return getObjectByQuery("doc('rendszer')/rendszer/tanevek/tanev[@id='" + id + "']");
+            return getObjectByQuery("doc('rendszer')/rendszer/termek/terem[@id='" + id + "']");
         } finally {
             closeConnection();
         }
     }
-
-    public ArrayList<SchoolYear> findAll() throws JAXBException, IOException {
+    
+    public ArrayList<Room> findAll() throws JAXBException, IOException {
         try {
-            return getObjectsByQuery("doc('rendszer')/rendszer/tanevek/tanev");
+            return getObjectsByQuery("doc('rendszer')/rendszer/termek/terem");
         } finally {
             closeConnection();
         }
@@ -48,7 +48,7 @@ public class SchoolYearDAO extends DefaultDAO<SchoolYear> {
     public void add() {
         throw new NotImplementedException("implementáld");
     }
-
+    
     public void remove() {
         throw new NotImplementedException("implementáld");
     }

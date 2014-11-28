@@ -20,22 +20,22 @@ public class DayAdapter extends XmlAdapter<String, Days> {
                 nap = Days.HÉTFŐ;
                 break;
             case "kedd":
-                nap = Days.HÉTFŐ;
+                nap = Days.KEDD;
                 break;
             case "szerda":
-                nap = Days.HÉTFŐ;
+                nap = Days.SZERDA;
                 break;
             case "csütörtök":
-                nap = Days.HÉTFŐ;
+                nap = Days.CSÜTÖRTÖK;
                 break;
             case "péntek":
-                nap = Days.HÉTFŐ;
+                nap = Days.PÉNTEK;
                 break;
             case "szombat":
-                nap = Days.HÉTFŐ;
+                nap = Days.SZOMBAT;
                 break;
             case "vasárnap":
-                nap = Days.HÉTFŐ;
+                nap = Days.VASÁRNAP;
                 break;
         }
         return nap;

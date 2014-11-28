@@ -3,9 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package model;
 
+import dao.RoomDAO;
+import java.io.IOException;
+import java.util.ArrayList;
+import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -15,24 +18,24 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name="terem")
+@XmlRootElement(name = "terem")
 public class Room {
-    
+
     @XmlAttribute
     private int id;
-    
-    @XmlElement(name="labor")
-    private boolean labor;
-    
-    @XmlElement(name="projektor")
-    private boolean projektor;
-    
-    @XmlElement(name="ferohely")
-    private int ferohely;
+
+    @XmlElement(name = "labor")
+    private Boolean labor;
+
+    @XmlElement(name = "projektor")
+    private Boolean projektor;
+
+    @XmlElement(name = "ferohely")
+    private Integer ferohely;
 
     public Room() {
-    }    
-    
+    }
+
     public Room(int id, boolean labor, boolean projektor, int ferohely) {
         this.id = id;
         this.labor = labor;
@@ -72,9 +75,25 @@ public class Room {
         this.ferohely = ferohely;
     }
 
+    public static Room find(int id) throws JAXBException, IOException {
+        return new RoomDAO().find(id);
+    }
+
+    public static ArrayList<Room> findAll() throws JAXBException, IOException {
+        return new RoomDAO().findAll();
+    }
+    
+    public void add() {
+        new RoomDAO(this).add();
+    }
+
+    public void remove() {
+        new RoomDAO(this).remove();
+    }
+
     @Override
     public String toString() {
         return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
-    }        
-    
+    }
+
 }

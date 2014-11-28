@@ -8,47 +8,47 @@ package dao;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.xml.bind.JAXBException;
-import model.SchoolYear;
+import model.Teacher;
 import org.apache.commons.lang3.NotImplementedException;
 
 /**
  *
  * @author zsolti
  */
-public class SchoolYearDAO extends DefaultDAO<SchoolYear> {
+public class TeacherDAO extends DefaultDAO<Teacher> {
 
-    private SchoolYear schoolYear;
-
-    public SchoolYearDAO() {
-        super(SchoolYear.class);
-        schoolYear = null;
+    private Teacher teacher;
+    
+    public TeacherDAO() {
+        super(Teacher.class);
+        teacher=null;
+    }
+    
+    public TeacherDAO(Teacher teacher) {
+        super(Teacher.class);
+        this.teacher=teacher;
     }
 
-    public SchoolYearDAO(SchoolYear schoolYear) {
-        super(SchoolYear.class);
-        this.schoolYear = schoolYear;
-    }
-
-    public SchoolYear find(String id) throws JAXBException, IOException {
+    public Teacher find(int id) throws JAXBException, IOException {
         try {
-            return getObjectByQuery("doc('rendszer')/rendszer/tanevek/tanev[@id='" + id + "']");
+            return getObjectByQuery("doc('rendszer')/rendszer/tanarok/tanar[@id='" + id + "']");
         } finally {
             closeConnection();
         }
     }
-
-    public ArrayList<SchoolYear> findAll() throws JAXBException, IOException {
+    
+    public ArrayList<Teacher> findAll() throws JAXBException, IOException {
         try {
-            return getObjectsByQuery("doc('rendszer')/rendszer/tanevek/tanev");
+            return getObjectsByQuery("doc('rendszer')/rendszer/tanarok/tanar");
         } finally {
             closeConnection();
         }
     }
-
+    
     public void add() {
         throw new NotImplementedException("implementáld");
     }
-
+    
     public void remove() {
         throw new NotImplementedException("implementáld");
     }
