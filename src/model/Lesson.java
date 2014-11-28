@@ -40,6 +40,7 @@ public class Lesson {
     private Subject subject;
 
     @XmlElement(name = "tanar")
+    @XmlJavaTypeAdapter(TeacherAdapter.class)
     private Teacher teacher;
 
     @XmlElement(name = "terem")

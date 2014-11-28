@@ -95,9 +95,16 @@ public final class QueryExample {
         String input = "for $x in doc('rendszer')/rendszer/osztalyok/osztaly/orarend/ora[@id='1'] return $x";
 
         BaseXClient.Query query = session.query(input);
-        while (query.more()) {
+        //while (query.more()) 
+        {
 
-            String xml = query.next();
+            String xml = "<ora id=\"1\">\n" +
+"  <nap>hétfő</nap>\n" +
+"  <idopont>10:00:00</idopont>\n" +
+"  <tantargy id=\"1\"/>\n" +
+"  <tanar id=\"1\">1</tanar>\n" +
+"  <terem id=\"202\"/>\n" +
+"</ora>";
             System.out.println(xml);
             Lesson t = JAXBUtil.fromXMLElement(Lesson.class, xml);
             System.out.println(t);
