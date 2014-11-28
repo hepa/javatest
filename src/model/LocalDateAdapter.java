@@ -5,17 +5,19 @@
  */
 package model;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import javax.xml.bind.annotation.adapters.XmlAdapter;
-import org.joda.time.LocalDate;
+
 
 public class LocalDateAdapter extends XmlAdapter<String, LocalDate> {
 
 	public LocalDate unmarshal(String v) throws Exception {
-		return new LocalDate(v);
+		return LocalDate.parse(v);
 	}
 
 	public String marshal(LocalDate v) throws Exception {
-		return v.toString();
+		return v.format(DateTimeFormatter.ISO_LOCAL_DATE);
 	}
 
 }

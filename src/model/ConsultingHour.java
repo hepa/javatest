@@ -5,13 +5,13 @@
  */
 package model;
 
+import java.time.LocalTime;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
-import org.joda.time.DateTime;
 
 /**
  *
@@ -26,13 +26,13 @@ public class ConsultingHour {
     private Days day;
 
     @XmlElement(name = "idopont")
-    @XmlJavaTypeAdapter(DateTimeAdapter.class)
-    private DateTime hour;
+    @XmlJavaTypeAdapter(LocalTimeAdapter.class)
+    private LocalTime hour;
 
     public ConsultingHour() {
     }
 
-    public ConsultingHour(Days day, DateTime hour) {
+    public ConsultingHour(Days day, LocalTime hour) {
         this.day = day;
         this.hour = hour;
     }
@@ -45,11 +45,11 @@ public class ConsultingHour {
         this.day = day;
     }
 
-    public DateTime getHour() {
+    public LocalTime getHour() {
         return hour;
     }
 
-    public void setHour(DateTime hour) {
+    public void setHour(LocalTime hour) {
         this.hour = hour;
     }
 

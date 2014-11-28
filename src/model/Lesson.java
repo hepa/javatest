@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.time.LocalTime;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -12,7 +13,6 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
-import org.joda.time.DateTime;
 
 /**
  *
@@ -24,14 +24,14 @@ public class Lesson {
 
     @XmlAttribute
     private int id;
-    
+
     @XmlElement(name = "nap")
     @XmlJavaTypeAdapter(DayAdapter.class)
     private Days day;
 
     @XmlElement(name = "idopont")
-    @XmlJavaTypeAdapter(DateTimeAdapter.class)
-    private DateTime time;
+    @XmlJavaTypeAdapter(LocalTimeAdapter.class)
+    private LocalTime time;
 
     @XmlElement(name = "tantargy")
     private Subject subject;
@@ -45,7 +45,7 @@ public class Lesson {
     public Lesson() {
     }
 
-    public Lesson(int id, DateTime time, Subject subject, Teacher teacher, Room room) {
+    public Lesson(int id, LocalTime time, Subject subject, Teacher teacher, Room room) {
         this.id = id;
         this.time = time;
         this.subject = subject;
@@ -61,11 +61,11 @@ public class Lesson {
         this.id = id;
     }
 
-    public DateTime getTime() {
+    public LocalTime getTime() {
         return time;
     }
 
-    public void setTime(DateTime time) {
+    public void setTime(LocalTime time) {
         this.time = time;
     }
 

@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -13,6 +14,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -28,10 +30,12 @@ public class SchoolYear {
     private String id;
     
     @XmlElement(name="mettol")
-    private Date from;
+    @XmlJavaTypeAdapter(LocalDateAdapter.class)
+    private LocalDate from;
     
+    @XmlJavaTypeAdapter(LocalDateAdapter.class)
     @XmlElement(name="meddig")
-    private Date to;
+    private LocalDate to;
     
     @XmlElementWrapper(name="szunetek")
     @XmlElement(name="szunet")
@@ -41,7 +45,7 @@ public class SchoolYear {
         holidays=new ArrayList<>();
     }
 
-    public SchoolYear(String id, Date from, Date to, ArrayList<Holiday> holidays) {
+    public SchoolYear(String id, LocalDate from, LocalDate to, ArrayList<Holiday> holidays) {
         this.id = id;
         this.from = from;
         this.to = to;
@@ -56,19 +60,19 @@ public class SchoolYear {
         this.id = id;
     }
 
-    public Date getFrom() {
+    public LocalDate getFrom() {
         return from;
     }
 
-    public void setFrom(Date from) {
+    public void setFrom(LocalDate from) {
         this.from = from;
     }
 
-    public Date getTo() {
+    public LocalDate getTo() {
         return to;
     }
 
-    public void setTo(Date to) {
+    public void setTo(LocalDate to) {
         this.to = to;
     }
 

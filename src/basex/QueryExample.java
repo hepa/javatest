@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.bind.JAXBException;
 import model.Mark;
+import model.SchoolYear;
 import model.Student;
 import model.Teacher;
 import org.basex.core.BaseXException;
@@ -43,14 +44,16 @@ public final class QueryExample {
         BaseXClient session = new BaseXClient("localhost", 1984, "admin", "admin");
 
 // create query instance
-        String input = "for $x in doc('rendszer')/rendszer/tanarok/tanar[@id='1'] return $x";
+        String input = "for $x in doc('rendszer')/rendszer/tanevek/tanev return $x";
+        
         BaseXClient.Query query = session.query(input);
         while (query.more()) {
 
             String xml = query.next();
-            Teacher t = JAXBUtil.fromXMLElement(Teacher.class, xml);
-            System.out.println(t.getForm());
-
+            System.out.println(xml);
+            SchoolYear t = JAXBUtil.fromXMLElement(SchoolYear.class, xml);
+            System.out.println(t);
+            JAXBUtil.toXML(t, System.out);
         }
 
         query.close();
