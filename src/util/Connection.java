@@ -15,7 +15,7 @@ import org.apache.log4j.Logger;
  */
 public class Connection {
 
-    Logger logger = Logger.getLogger(Connection.class);
+    private static Logger logger = Logger.getLogger(Connection.class);
 
     private BaseXClient client;
 

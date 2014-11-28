@@ -10,6 +10,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -17,6 +18,8 @@ import java.util.Properties;
  */
 public class Database {
 
+    private static Logger logger = Logger.getLogger(Database.class);
+    
     private static Database database = null;
 
     private String host;
@@ -28,14 +31,15 @@ public class Database {
         Properties prop = new Properties();
         InputStream input = null;
         try {
-            input = new FileInputStream(new File("/src/main/java/resources/database.properties"));
+            input = new FileInputStream(new File("src\\main\\resources\\database.properties"));
+           
             prop.load(input);
             host = prop.getProperty("host");
             port = Integer.parseInt(prop.getProperty("port"));
             user = prop.getProperty("user");
             pass = prop.getProperty("pass");
         } catch (IOException ex) {
-
+            System.out.println(ex.getMessage());
         } finally {
             if (input != null) {
                 try {
@@ -48,7 +52,9 @@ public class Database {
     }
 
     public static synchronized Database getInstance() {
+        logger.debug("getInstance()");
         if (database == null) {
+            logger.debug("Create instance.");
             database = new Database();
         }
         return database;

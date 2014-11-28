@@ -1,0 +1,7 @@
+18:39:33,686 DEBUG Database:55 - getInstance()
+18:39:33,686 DEBUG Database:59 - Create instance.
+18:40:12,296 DEBUG Database:55 - getInstance()
+18:40:12,296 DEBUG Database:57 - Create instance.
+18:42:37,852 DEBUG Database:55 - getInstance()
+18:42:37,852 DEBUG Database:57 - Create instance.
+18:42:37,892 DEBUG DefaultDAO:57 - Query: for $x in doc('rendszer')/rendszer/tanevek/tanev[@id='2014/2015'] return $x

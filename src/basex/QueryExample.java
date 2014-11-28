@@ -6,6 +6,7 @@
 package basex;
 
 import static basex.RunQueries.query;
+import dao.SchoolYearDAO;
 import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,6 +15,7 @@ import model.Mark;
 import model.SchoolYear;
 import model.Student;
 import model.Teacher;
+import org.apache.log4j.PropertyConfigurator;
 import org.basex.core.BaseXException;
 import org.basex.core.Context;
 import org.basex.core.cmd.XQuery;
@@ -38,14 +40,24 @@ public final class QueryExample {
      * @param args command-line arguments
      */
     public static void main(final String[] args) throws IOException, JAXBException {
-        // print exception
+        
+        //configure log4j
+        PropertyConfigurator.configure("src\\main\\resources\\log4j.properties");
+        
+        
+        try {
+            SchoolYear f = new SchoolYearDAO().find("2014/2015");
+            System.out.println(f);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
 
 // create session
         BaseXClient session = new BaseXClient("localhost", 1984, "admin", "admin");
 
 // create query instance
         String input = "for $x in doc('rendszer')/rendszer/tanevek/tanev return $x";
-        
+
         BaseXClient.Query query = session.query(input);
         while (query.more()) {
 

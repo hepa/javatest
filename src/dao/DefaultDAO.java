@@ -8,6 +8,7 @@ package dao;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.xml.bind.JAXBException;
+import org.apache.log4j.Logger;
 import util.Connection;
 import util.Database;
 import util.JAXBUtil;
@@ -22,6 +23,8 @@ public class DefaultDAO<T extends Object> {
     private Connection conn;
     private final Class<T> objectClass;
 
+    protected static Logger logger = Logger.getLogger(DefaultDAO.class);
+    
     public DefaultDAO(Class<T> objectClass) {
         this.objectClass = objectClass;
         db = Database.getInstance();
@@ -32,15 +35,26 @@ public class DefaultDAO<T extends Object> {
         db.freeConnection(conn);
     }
 
+    /*
+    @return <code>null</code> if object not found
+    */
     protected T getObjectByQuery(String query) throws JAXBException, IOException {
-        return getObject(query(query).get(0));
+        ArrayList<String> res = query(query);
+        return res.isEmpty() ? null : getObject(res.get(0));
     }
 
+    /*
+    @return <code>null</code> if object not found
+    */
     protected ArrayList<T> getObjectsByQuery(String query) throws IOException, JAXBException {
         return getObjects(query(query));
     }
 
+    /*
+    @return empty <code>ArrayList<String></code> if there is no result.
+    */
     protected ArrayList<String> query(String query) throws IOException {
+       logger.debug("Query: "+query);
         return conn.query(query);
     }
 

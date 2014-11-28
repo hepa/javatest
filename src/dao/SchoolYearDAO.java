@@ -21,7 +21,7 @@ public class SchoolYearDAO extends DefaultDAO<SchoolYear> {
 
     public SchoolYear find(String id) throws JAXBException, IOException {
         try {
-            return getObjectByQuery("for $x in doc('rendszer')/rendszer/tanevek/tanev[id='" + id + "' return $x");
+            return getObjectByQuery("for $x in doc('rendszer')/rendszer/tanevek/tanev[@id='" + id + "'] return $x");
         } finally {
             closeConnection();
         }
