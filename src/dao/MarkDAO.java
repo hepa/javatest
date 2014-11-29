@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import javax.xml.bind.JAXBException;
 import model.Mark;
-import org.apache.commons.lang3.NotImplementedException;
 
 /**
  *
@@ -19,6 +18,10 @@ public class MarkDAO extends DefaultDAO<Mark> {
 
     public MarkDAO() {
         super(Mark.class);
+    }
+
+    public MarkDAO(Mark mark) {
+        super(Mark.class,mark);
     }
 
     public Mark find(String id) throws JAXBException, IOException {
@@ -37,11 +40,19 @@ public class MarkDAO extends DefaultDAO<Mark> {
         }
     }
 
-    public void add() {
-        throw new NotImplementedException("implementáld");
+    public void add(String studentId) throws IOException, JAXBException {
+        try {
+            executeQuery("insert node " + getXml(object) + " into doc('rendszer')/rendszer/diakok/diak[@id='"+studentId+"']/jegyei");
+        } finally {
+            closeConnection();
+        }
     }
 
-    public void remove() {
-        throw new NotImplementedException("implementáld");
+    public void remove() throws IOException {
+        try {
+            executeQuery("delete node doc('rendszer')//jegy[@id='"+object.getId()+"']");
+        } finally {
+            closeConnection();
+        }
     }
 }

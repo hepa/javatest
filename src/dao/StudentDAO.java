@@ -9,26 +9,22 @@ import java.io.IOException;
 import java.util.ArrayList;
 import javax.xml.bind.JAXBException;
 import model.Student;
-import org.apache.commons.lang3.NotImplementedException;
 
 /**
  *
  * @author zsolti
  */
 public class StudentDAO extends DefaultDAO<Student>{
-    private Student student;
-
+   
     public StudentDAO() {
         super(Student.class);
-        student=null;
     }
     
     public StudentDAO(Student student) {
-        super(Student.class);
-        this.student=student;
+        super(Student.class,student);
     }
     
-    public Student find(int id) throws JAXBException, IOException {
+    public Student find(String id) throws JAXBException, IOException {
         try {
             return getObjectByQuery("doc('rendszer')/rendszer/diakok/diak[@id='" + id + "']");
         } finally {
@@ -44,11 +40,19 @@ public class StudentDAO extends DefaultDAO<Student>{
         }
     }
     
-    public void add() {
-        throw new NotImplementedException("implementáld");
+    public void add() throws IOException, JAXBException {
+        try {
+            executeQuery("insert node " + getXml(object) + " into doc('rendszer')/rendszer/diakok");
+        } finally {
+            closeConnection();
+        }
     }
     
-    public void remove() {
-        throw new NotImplementedException("implementáld");
+    public void remove() throws IOException {
+         try {
+            executeQuery("delete node doc('rendszer')/rendszer/diakok/diak[@id='"+object.getId()+"']");
+        } finally {
+            closeConnection();
+        }
     }
 }

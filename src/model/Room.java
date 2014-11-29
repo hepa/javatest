@@ -83,11 +83,11 @@ public class Room implements XmlID{
         return new RoomDAO().findAll();
     }
     
-    public void add() {
+    public void add() throws JAXBException, IOException {
         new RoomDAO(this).add();
     }
 
-    public void remove() {
+    public void remove() throws IOException {
         new RoomDAO(this).remove();
     }
 

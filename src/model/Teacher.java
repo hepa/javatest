@@ -67,11 +67,11 @@ public class Teacher extends Person {
         return new TeacherDAO().findAll();
     }
 
-    public void add() {
+    public void add() throws IOException, JAXBException {
         new TeacherDAO(this).add();
     }
 
-    public void remove() {
+    public void remove() throws IOException {
         new TeacherDAO(this).remove();
     }
 

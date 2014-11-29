@@ -8,6 +8,7 @@ package util;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.StringReader;
+import java.io.StringWriter;
 import java.util.ArrayList;
 
 import javax.xml.bind.JAXBContext;
@@ -37,6 +38,22 @@ public class JAXBUtil {
         }
     }
 
+    public static String toXML(Object o) throws JAXBException {
+        try {
+            StringWriter writer = new StringWriter();
+            JAXBContext context = JAXBContext.newInstance(o.getClass());
+            Marshaller marshaller = context.createMarshaller();
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+            marshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
+            marshaller.marshal(o, writer);
+            String xml = writer.toString();
+            xml=xml.substring(xml.indexOf('\n')+1);
+            return xml;
+        } catch (JAXBException e) {
+            throw e;
+        }
+    }
+    
     /**
      * Deserializes an object from XML.
      *

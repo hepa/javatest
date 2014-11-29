@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import javax.xml.bind.JAXBException;
 import model.Subject;
-import org.apache.commons.lang3.NotImplementedException;
 
 /**
  *
@@ -17,16 +16,12 @@ import org.apache.commons.lang3.NotImplementedException;
  */
 public class SubjectDAO extends DefaultDAO<Subject> {
 
-    private Subject subject;
-
     public SubjectDAO() {
         super(Subject.class);
-        subject = null;
     }
 
     public SubjectDAO(Subject subject) {
-        super(Subject.class);
-        this.subject = subject;
+        super(Subject.class,subject);
     }
 
     public Subject find(String id) throws JAXBException, IOException {
@@ -45,12 +40,20 @@ public class SubjectDAO extends DefaultDAO<Subject> {
         }
     }
 
-    public void add() {
-        throw new NotImplementedException("implementáld");
+    public void add() throws IOException, JAXBException {
+        try {
+            executeQuery("insert node " + getXml(object) + " into doc('rendszer')/rendszer/tantargyak");
+        } finally {
+            closeConnection();
+        }
     }
     
-    public void remove() {
-        throw new NotImplementedException("implementáld");
+    public void remove() throws IOException {
+        try {
+            executeQuery("delete node doc('rendszer')/rendszer/tantargyak/tantargy[@id='"+object.getId()+"']");
+        } finally {
+            closeConnection();
+        }
     }
     
 }

@@ -5,7 +5,11 @@
  */
 package model;
 
+import dao.HolidayDAO;
+import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -20,20 +24,20 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  * @author zsolti
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name="szunet")
-public class Holiday implements XmlID{
-    
+@XmlRootElement(name = "szunet")
+public class Holiday implements XmlID {
+
     @XmlAttribute
     private String id;
-   
-    @XmlElement(name="nev")
+
+    @XmlElement(name = "nev")
     private String name;
-    
-    @XmlElement(name="mettol")
+
+    @XmlElement(name = "mettol")
     @XmlJavaTypeAdapter(LocalDateAdapter.class)
     private LocalDate from;
-    
-    @XmlElement(name="meddig")
+
+    @XmlElement(name = "meddig")
     @XmlJavaTypeAdapter(LocalDateAdapter.class)
     private LocalDate to;
 
@@ -79,10 +83,25 @@ public class Holiday implements XmlID{
         this.to = to;
     }
 
+    public static Holiday find(String id) throws JAXBException, IOException {
+        return new HolidayDAO().find(id);
+    }
+
+    public static ArrayList<Holiday> findAll() throws JAXBException, IOException {
+        return new HolidayDAO().findAll();
+    }
+
+    public void add(String schoolYearId) throws JAXBException, IOException {
+        new HolidayDAO(this).add(schoolYearId);
+    }
+
+    public void remove() throws IOException {
+        new HolidayDAO(this).remove();
+    }
+
     @Override
     public String toString() {
         return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
-    
-    
+
 }

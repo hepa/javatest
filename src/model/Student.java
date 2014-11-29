@@ -5,7 +5,10 @@
  */
 package model;
 
+import dao.StudentDAO;
+import java.io.IOException;
 import java.util.ArrayList;
+import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -41,6 +44,22 @@ public class Student extends Person {
 
     public void setMarks(ArrayList<Mark> marks) {
         this.marks = marks;
+    }
+
+    public static Student find(String id) throws JAXBException, IOException {
+        return new StudentDAO().find(id);
+    }
+
+    public static ArrayList<Student> findAll() throws JAXBException, IOException {
+        return new StudentDAO().findAll();
+    }
+
+    public void add() throws IOException, JAXBException {
+        new StudentDAO(this).add();
+    }
+
+    public void remove() throws IOException {
+        new StudentDAO(this).remove();
     }
 
     @Override

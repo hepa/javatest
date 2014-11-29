@@ -94,11 +94,11 @@ public class SchoolYear implements XmlID{
         return new SchoolYearDAO().find(id);
     }
 
-    public void add() {
+    public void add() throws JAXBException, IOException {
         new SchoolYearDAO(this).add();
     }
 
-    public void remove() {
+    public void remove() throws IOException {
         new SchoolYearDAO(this).remove();
     }
 

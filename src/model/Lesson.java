@@ -5,7 +5,11 @@
  */
 package model;
 
+import dao.LessonDAO;
+import java.io.IOException;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -20,7 +24,7 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "ora")
-public class Lesson implements XmlID{
+public class Lesson implements XmlID {
 
     @XmlAttribute
     private String id;
@@ -94,6 +98,22 @@ public class Lesson implements XmlID{
 
     public void setRoom(Room room) {
         this.room = room;
+    }
+
+    public static Lesson find(String id) throws JAXBException, IOException {
+        return new LessonDAO().find(id);
+    }
+
+    public static ArrayList<Lesson> findAll() throws JAXBException, IOException {
+        return new LessonDAO().findAll();
+    }
+
+    public void add(String classId) throws JAXBException, IOException {
+        new LessonDAO(this).add(classId);
+    }
+
+    public void remove() throws IOException {
+        new LessonDAO(this).remove();
     }
 
     @Override

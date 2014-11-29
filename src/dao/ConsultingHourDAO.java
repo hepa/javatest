@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import javax.xml.bind.JAXBException;
 import model.ConsultingHour;
-import org.apache.commons.lang3.NotImplementedException;
 
 /**
  *
@@ -20,28 +19,40 @@ public class ConsultingHourDAO extends DefaultDAO<ConsultingHour> {
     public ConsultingHourDAO() {
         super(ConsultingHour.class);
     }
-    
+
+    public ConsultingHourDAO(ConsultingHour consultingHour) {
+        super(ConsultingHour.class, consultingHour);
+    }
+
     public ConsultingHour find(String id) throws JAXBException, IOException {
-     try {
+        try {
             return getObjectByQuery("doc('rendszer')//fogadoora[@id='" + id + "']");
         } finally {
             closeConnection();
         }
     }
-    
+
     public ArrayList<ConsultingHour> findAll() throws JAXBException, IOException {
-     try {
+        try {
             return getObjectsByQuery("doc('rendszer')//fogadoora");
         } finally {
             closeConnection();
         }
     }
-    
-    public void add() {
-        throw new NotImplementedException("implementáld");
+
+    public void add(String teacherId) throws JAXBException, IOException {
+        try {
+            executeQuery("insert node " + getXml(object) + " into doc('rendszer')/rendszer/tanarok/tanar[@id='" + teacherId + "']/fogadoorak");
+        } finally {
+            closeConnection();
+        }
     }
-    
-    public void remove() {
-        throw new NotImplementedException("implementáld");
+
+    public void remove() throws IOException {
+        try {
+            executeQuery("delete node doc('rendszer')/rendszer//fogadoora[@id='" + object.getId() + "']");
+        } finally {
+            closeConnection();
+        }
     }
 }

@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import javax.xml.bind.JAXBException;
 import model.Room;
-import org.apache.commons.lang3.NotImplementedException;
 
 /**
  *
@@ -17,16 +16,12 @@ import org.apache.commons.lang3.NotImplementedException;
  */
 public class RoomDAO extends DefaultDAO<Room> {
 
-    private Room room;
-
     public RoomDAO() {
         super(Room.class);
-        room = null;
     }
 
     public RoomDAO(Room room) {
-        super(Room.class);
-        this.room = room;
+        super(Room.class, room);
     }
 
     public Room find(int id) throws JAXBException, IOException {
@@ -36,7 +31,7 @@ public class RoomDAO extends DefaultDAO<Room> {
             closeConnection();
         }
     }
-    
+
     public ArrayList<Room> findAll() throws JAXBException, IOException {
         try {
             return getObjectsByQuery("doc('rendszer')/rendszer/termek/terem");
@@ -45,11 +40,19 @@ public class RoomDAO extends DefaultDAO<Room> {
         }
     }
 
-    public void add() {
-        throw new NotImplementedException("implementáld");
+    public void add() throws JAXBException, IOException {
+        try {
+            executeQuery("insert node " + getXml(object) + " into doc('rendszer')/rendszer/termek");
+        } finally {
+            closeConnection();
+        }
     }
-    
-    public void remove() {
-        throw new NotImplementedException("implementáld");
+
+    public void remove() throws IOException {
+        try {
+            executeQuery("delete node doc('rendszer')/rendszer/termek/terem[@id='" + object.getId() + "']");
+        } finally {
+            closeConnection();
+        }
     }
 }

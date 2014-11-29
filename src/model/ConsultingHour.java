@@ -5,7 +5,11 @@
  */
 package model;
 
+import dao.ConsultingHourDAO;
+import java.io.IOException;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -20,11 +24,11 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "fogadoora")
-public class ConsultingHour implements XmlID{
+public class ConsultingHour implements XmlID {
 
     @XmlAttribute
     private String id;
-    
+
     @XmlElement(name = "nap")
     @XmlJavaTypeAdapter(DayAdapter.class)
     private Days day;
@@ -63,6 +67,22 @@ public class ConsultingHour implements XmlID{
 
     public void setHour(LocalTime hour) {
         this.hour = hour;
+    }
+
+    public static ConsultingHour find(String id) throws JAXBException, IOException {
+        return new ConsultingHourDAO().find(id);
+    }
+
+    public static ArrayList<ConsultingHour> findAll() throws JAXBException, IOException {
+        return new ConsultingHourDAO().findAll();
+    }
+
+    public void add(String teacherId) throws JAXBException, IOException {
+        new ConsultingHourDAO(this).add(teacherId);
+    }
+
+    public void remove() throws IOException {
+        new ConsultingHourDAO(this).remove();
     }
 
     @Override

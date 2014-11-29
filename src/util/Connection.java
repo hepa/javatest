@@ -45,4 +45,9 @@ public class Connection {
         return ret;
     }
 
+    public void executeQuery(String queryString) throws IOException {
+        BaseXClient.Query query = client.query(queryString);
+        query.execute();
+    }
+
 }

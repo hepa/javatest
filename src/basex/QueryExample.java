@@ -7,6 +7,7 @@ package basex;
 
 import static basex.RunQueries.query;
 import dao.ConsultingHourDAO;
+import dao.MarkDAO;
 import dao.RoomDAO;
 import dao.SchoolYearDAO;
 import dao.TeacherDAO;
@@ -93,12 +94,21 @@ public final class QueryExample {
 
 // create session
         BaseXClient session = new BaseXClient("localhost", 1984, "admin", "admin");
-
+/*
         ConsultingHourDAO chdao = new ConsultingHourDAO();
         for(ConsultingHour c : chdao.findAll()) {
             System.out.println(c);
         }
+  */
         
+        MarkDAO mdao= new MarkDAO();
+        Mark m = mdao.find("1");
+        System.out.println(m);
+        mdao.setObject(m);
+        m.setId("2");
+        new MarkDAO(m).add("2");
+        m=new MarkDAO().find("2");
+        System.out.println(m);
 // create query instance
         String input = "for $x in doc('rendszer')/rendszer/osztalyok/osztaly return $x";
 

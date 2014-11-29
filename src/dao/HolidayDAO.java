@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import javax.xml.bind.JAXBException;
 import model.Holiday;
-import org.apache.commons.lang3.NotImplementedException;
 
 /**
  *
@@ -19,6 +18,10 @@ public class HolidayDAO extends DefaultDAO<Holiday> {
 
     public HolidayDAO() {
         super(Holiday.class);
+    }
+
+    public HolidayDAO(Holiday holiday) {
+        super(Holiday.class, holiday);
     }
 
     public Holiday find(String id) throws JAXBException, IOException {
@@ -36,12 +39,20 @@ public class HolidayDAO extends DefaultDAO<Holiday> {
             closeConnection();
         }
     }
-    
-    public void add() {
-        throw new NotImplementedException("implementáld");
+
+    public void add(String schoolYearId) throws JAXBException, IOException {
+        try {
+            executeQuery("insert node " + getXml(object) + " into doc('rendszer')/rendszer/tanevek/tanev[@id='" + schoolYearId + "']/szunetek");
+        } finally {
+            closeConnection();
+        }
     }
 
-    public void remove() {
-        throw new NotImplementedException("implementáld");
+    public void remove() throws IOException {
+        try {
+            executeQuery("delete node doc('rendszer')/rendszer//szunet[@id='" + object.getId() + "']");
+        } finally {
+            closeConnection();
+        }
     }
 }

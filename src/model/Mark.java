@@ -5,11 +5,16 @@
  */
 package model;
 
+import dao.MarkDAO;
+import java.io.IOException;
+import java.util.ArrayList;
+import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -25,9 +30,11 @@ public class Mark implements XmlID {
     private String id;
 
     @XmlElement(name = "tantargy")
+    @XmlJavaTypeAdapter(SubjectAdapter.class)
     private Subject subject;
 
     @XmlElement(name = "tanev")
+    @XmlJavaTypeAdapter(SchoolYearAdapter.class)
     private SchoolYear schoolYear;
 
     @XmlElement(name = "erdemjegy")
@@ -72,6 +79,22 @@ public class Mark implements XmlID {
 
     public void setMark(int mark) {
         this.mark = mark;
+    }
+
+    public static Mark find(String id) throws JAXBException, IOException {
+        return new MarkDAO().find(id);
+    }
+
+    public static ArrayList<Mark> findAll() throws JAXBException, IOException {
+        return new MarkDAO().findAll();
+    }
+
+    public void add(String studentId) throws IOException, JAXBException {
+        new MarkDAO(this).add(studentId);
+    }
+
+    public void remove() throws IOException {
+        new MarkDAO(this).remove();
     }
 
     @Override

@@ -8,19 +8,22 @@ package dao;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.xml.bind.JAXBException;
-import org.apache.commons.lang3.NotImplementedException;
 
 /**
  *
  * @author zsolti
  */
-public class ClassDAO extends DefaultDAO<Class> {
+public class ClassDAO extends DefaultDAO<model.Class> {
 
     public ClassDAO() {
-        super(Class.class);
+        super(model.Class.class);
     }
 
-    public Class find(String id) throws JAXBException, IOException {
+    public ClassDAO(model.Class clazz) {
+        super(model.Class.class, clazz);
+    }
+
+    public model.Class find(String id) throws JAXBException, IOException {
         try {
             return getObjectByQuery("doc('rendszer')/rendszer/osztalyok/osztaly[@id='" + id + "']");
         } finally {
@@ -28,19 +31,27 @@ public class ClassDAO extends DefaultDAO<Class> {
         }
     }
 
-    public ArrayList<Class> findAll() throws JAXBException, IOException {
+    public ArrayList<model.Class> findAll() throws JAXBException, IOException {
         try {
             return getObjectsByQuery("doc('rendszer')/rendszer/osztalyok/osztaly");
         } finally {
             closeConnection();
         }
     }
-    
-    public void add() {
-        throw new NotImplementedException("implementáld");
+
+    public void add() throws JAXBException, IOException {
+        try {
+            executeQuery("insert node " + getXml(object) + " into doc('rendszer')/rendszer/osztalyok");
+        } finally {
+            closeConnection();
+        }
     }
 
-    public void remove() {
-        throw new NotImplementedException("implementáld");
+    public void remove() throws IOException {
+        try {
+            executeQuery("delete node doc('rendszer')/rendszer/osztalyok/osztaly[@id='" + object.getId() + "']");
+        } finally {
+            closeConnection();
+        }
     }
 }

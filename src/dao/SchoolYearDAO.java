@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import javax.xml.bind.JAXBException;
 import model.SchoolYear;
-import org.apache.commons.lang3.NotImplementedException;
 
 /**
  *
@@ -17,16 +16,12 @@ import org.apache.commons.lang3.NotImplementedException;
  */
 public class SchoolYearDAO extends DefaultDAO<SchoolYear> {
 
-    private SchoolYear schoolYear;
-
     public SchoolYearDAO() {
         super(SchoolYear.class);
-        schoolYear = null;
     }
 
     public SchoolYearDAO(SchoolYear schoolYear) {
-        super(SchoolYear.class);
-        this.schoolYear = schoolYear;
+        super(SchoolYear.class, schoolYear);
     }
 
     public SchoolYear find(String id) throws JAXBException, IOException {
@@ -45,11 +40,19 @@ public class SchoolYearDAO extends DefaultDAO<SchoolYear> {
         }
     }
 
-    public void add() {
-        throw new NotImplementedException("implementáld");
+    public void add() throws JAXBException, IOException {
+        try {
+            executeQuery("insert node " + getXml(object) + " into doc('rendszer')/rendszer/tanevek");
+        } finally {
+            closeConnection();
+        }
     }
 
-    public void remove() {
-        throw new NotImplementedException("implementáld");
+    public void remove() throws IOException {
+        try {
+            executeQuery("delete node doc('rendszer')/rendszer/tanevek/tanev[@id='"+object.getId()+"']");
+        } finally {
+            closeConnection();
+        }
     }
 }

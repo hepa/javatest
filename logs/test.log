@@ -16,3 +16,143 @@
 11:47:26,730 DEBUG Database:55 - getInstance()
 11:47:26,730 DEBUG Database:57 - Create instance.
 11:47:26,730 DEBUG DefaultDAO:57 - Query: doc('rendszer')//fogadoora
+12:49:43,624 DEBUG Database:55 - getInstance()
+12:49:43,632 DEBUG Database:57 - Create instance.
+12:49:43,636 DEBUG DefaultDAO:73 - Query: doc('rendszer')/rendszer//jegy[@id='1']
+12:49:43,928 ERROR Connection:34 - Socket closed
+12:52:01,532 DEBUG Database:55 - getInstance()
+12:52:01,542 DEBUG Database:57 - Create instance.
+12:52:01,542 DEBUG DefaultDAO:73 - Query: doc('rendszer')/rendszer//jegy[@id='1']
+12:52:01,702 DEBUG Database:55 - getInstance()
+12:52:01,732 DEBUG Database:55 - getInstance()
+12:52:01,732 DEBUG DefaultDAO:73 - Query: doc('rendszer')/rendszer//jegy[@id='2']
+12:53:38,115 DEBUG Database:55 - getInstance()
+12:53:38,125 DEBUG Database:57 - Create instance.
+12:53:38,125 DEBUG DefaultDAO:73 - Query: doc('rendszer')/rendszer//jegy[@id='1']
+12:53:38,285 DEBUG Database:55 - getInstance()
+12:53:38,315 DEBUG DefaultDAO:78 - Query: insert node <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jegy id="2">
+    <tantargy/>
+    <tanev>
+        <szunetek/>
+    </tanev>
+    <erdemjegy>5</erdemjegy>
+</jegy>
+ into doc('rendszer')/rendszer/diakok/diak[@id='2']/jegyei
+12:53:38,315 DEBUG Database:55 - getInstance()
+12:53:38,315 DEBUG DefaultDAO:73 - Query: doc('rendszer')/rendszer//jegy[@id='2']
+12:57:49,709 DEBUG Database:55 - getInstance()
+12:57:49,719 DEBUG Database:57 - Create instance.
+12:57:49,719 DEBUG DefaultDAO:73 - Query: doc('rendszer')/rendszer//jegy[@id='1']
+12:57:49,909 DEBUG Database:55 - getInstance()
+12:57:49,949 DEBUG DefaultDAO:78 - Query: insert node <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jegy id="2">
+    <tantargy/>
+    <tanev>
+        <szunetek/>
+    </tanev>
+    <erdemjegy>5</erdemjegy>
+</jegy>
+ into doc('rendszer')/rendszer/diakok/diak[@id='2']/jegyei
+12:57:49,949 DEBUG Database:55 - getInstance()
+12:57:49,959 DEBUG DefaultDAO:73 - Query: doc('rendszer')/rendszer//jegy[@id='2']
+13:00:34,550 DEBUG Database:55 - getInstance()
+13:00:34,550 DEBUG Database:57 - Create instance.
+13:00:34,560 DEBUG DefaultDAO:73 - Query: doc('rendszer')/rendszer//jegy[@id='1']
+13:00:34,720 DEBUG Database:55 - getInstance()
+13:00:34,750 DEBUG DefaultDAO:78 - Query: insert node <jegy id="2">
+    <tantargy/>
+    <tanev>
+        <szunetek/>
+    </tanev>
+    <erdemjegy>5</erdemjegy>
+</jegy>
+ into doc('rendszer')/rendszer/diakok/diak[@id='2']/jegyei
+13:00:34,750 DEBUG Database:55 - getInstance()
+13:00:34,750 DEBUG DefaultDAO:73 - Query: doc('rendszer')/rendszer//jegy[@id='2']
+13:11:51,923 DEBUG Database:55 - getInstance()
+13:11:51,923 DEBUG Database:57 - Create instance.
+13:11:51,943 DEBUG DefaultDAO:73 - Query: doc('rendszer')/rendszer//jegy[@id='1']
+13:11:52,073 DEBUG Database:55 - getInstance()
+13:11:52,093 DEBUG DefaultDAO:78 - Query: insert node <jegy id="2">
+    <tantargy>K001</tantargy>
+    <tanev>2014/2015</tanev>
+    <erdemjegy>5</erdemjegy>
+</jegy>
+ into doc('rendszer')/rendszer/diakok/diak[@id='2']/jegyei
+13:11:52,093 DEBUG Database:55 - getInstance()
+13:11:52,093 DEBUG DefaultDAO:73 - Query: doc('rendszer')/rendszer//jegy[@id='2']
+13:12:42,065 DEBUG Database:55 - getInstance()
+13:12:42,065 DEBUG Database:57 - Create instance.
+13:12:42,065 DEBUG DefaultDAO:73 - Query: doc('rendszer')/rendszer//jegy[@id='1']
+13:12:42,215 DEBUG Database:55 - getInstance()
+13:12:42,235 DEBUG DefaultDAO:78 - Query: insert node <jegy id="2">
+    <tantargy>K001</tantargy>
+    <tanev>2014/2015</tanev>
+    <erdemjegy>5</erdemjegy>
+</jegy>
+ into doc('rendszer')/rendszer/diakok/diak[@id='2']/jegyei
+13:12:42,235 DEBUG Database:55 - getInstance()
+13:12:42,235 DEBUG DefaultDAO:73 - Query: doc('rendszer')/rendszer//jegy[@id='2']
+13:13:46,173 DEBUG Database:55 - getInstance()
+13:13:46,183 DEBUG Database:57 - Create instance.
+13:13:46,183 DEBUG DefaultDAO:73 - Query: doc('rendszer')/rendszer//jegy[@id='1']
+13:13:46,313 DEBUG Database:55 - getInstance()
+13:13:46,323 DEBUG DefaultDAO:78 - Query: insert node <jegy id="2">
+    <tantargy>K001</tantargy>
+    <tanev>2014/2015</tanev>
+    <erdemjegy>5</erdemjegy>
+</jegy>
+ into doc('rendszer')/rendszer/diakok/diak[@id='2']/jegyei
+13:14:04,938 DEBUG Database:55 - getInstance()
+13:14:04,948 DEBUG Database:57 - Create instance.
+13:14:04,948 DEBUG DefaultDAO:73 - Query: doc('rendszer')/rendszer//jegy[@id='1']
+13:14:05,078 DEBUG Database:55 - getInstance()
+13:14:05,098 DEBUG DefaultDAO:78 - Query: insert node <jegy id="2">
+    <tantargy>K001</tantargy>
+    <tanev>2014/2015</tanev>
+    <erdemjegy>5</erdemjegy>
+</jegy>
+ into doc('rendszer')/rendszer/diakok/diak[@id='2']/jegyei
+13:14:42,051 DEBUG Database:55 - getInstance()
+13:14:42,051 DEBUG Database:57 - Create instance.
+13:14:42,051 DEBUG DefaultDAO:73 - Query: doc('rendszer')/rendszer//jegy[@id='1']
+13:14:42,181 DEBUG Database:55 - getInstance()
+13:14:42,201 DEBUG DefaultDAO:78 - Query: insert node <jegy id="2">
+    <tantargy>K001</tantargy>
+    <tanev>2014/2015</tanev>
+    <erdemjegy>5</erdemjegy>
+</jegy>
+ into doc('rendszer')/rendszer/diakok/diak[@id='2']/jegyei
+13:17:04,059 DEBUG Database:55 - getInstance()
+13:17:04,059 DEBUG Database:57 - Create instance.
+13:17:04,059 DEBUG DefaultDAO:73 - Query: doc('rendszer')/rendszer//jegy[@id='1']
+13:17:04,239 DEBUG Database:55 - getInstance()
+13:17:04,259 DEBUG DefaultDAO:78 - Query: insert node <jegy id="2">
+    <tantargy>K001</tantargy>
+    <tanev>2014/2015</tanev>
+    <erdemjegy>5</erdemjegy>
+</jegy>
+ into doc('rendszer')/rendszer/diakok/diak[@id='2']/jegyei
+13:17:29,180 DEBUG Database:55 - getInstance()
+13:17:29,180 DEBUG Database:57 - Create instance.
+13:17:29,180 DEBUG DefaultDAO:73 - Query: doc('rendszer')/rendszer//jegy[@id='1']
+13:17:29,320 DEBUG Database:55 - getInstance()
+13:17:29,330 DEBUG DefaultDAO:78 - Query: insert node <jegy id="2">
+    <tantargy>K001</tantargy>
+    <tanev>2014/2015</tanev>
+    <erdemjegy>5</erdemjegy>
+</jegy>
+ into doc('rendszer')/rendszer/diakok/diak[@id='2']/jegyei
+13:18:26,854 DEBUG Database:55 - getInstance()
+13:18:26,854 DEBUG Database:57 - Create instance.
+13:18:26,854 DEBUG DefaultDAO:73 - Query: doc('rendszer')/rendszer//jegy[@id='1']
+13:18:26,984 DEBUG Database:55 - getInstance()
+13:18:27,004 DEBUG DefaultDAO:78 - Query: insert node <jegy id="2">
+    <tantargy>K001</tantargy>
+    <tanev>2014/2015</tanev>
+    <erdemjegy>5</erdemjegy>
+</jegy>
+ into doc('rendszer')/rendszer/diakok/diak[@id='2']/jegyei
+13:18:27,014 DEBUG Database:55 - getInstance()
+13:18:27,014 DEBUG DefaultDAO:73 - Query: doc('rendszer')/rendszer//jegy[@id='2']

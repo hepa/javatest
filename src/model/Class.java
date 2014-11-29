@@ -5,7 +5,10 @@
  */
 package model;
 
+import dao.ClassDAO;
+import java.io.IOException;
 import java.util.ArrayList;
+import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -21,7 +24,7 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "osztaly")
-public class Class implements XmlID{
+public class Class implements XmlID {
 
     @XmlAttribute
     private String id;
@@ -104,6 +107,22 @@ public class Class implements XmlID{
 
     public void setLessons(ArrayList<Lesson> lessons) {
         this.lessons = lessons;
+    }
+
+    public static Class find(String id) throws JAXBException, IOException {
+        return new ClassDAO().find(id);
+    }
+
+    public static ArrayList<Class> findAll() throws JAXBException, IOException {
+        return new ClassDAO().findAll();
+    }
+
+    public void add() throws JAXBException, IOException {
+        new ClassDAO(this).add();
+    }
+
+    public void remove() throws IOException {
+        new ClassDAO(this).remove();
     }
 
     @Override

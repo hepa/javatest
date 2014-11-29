@@ -7,7 +7,6 @@ package model;
 
 import dao.SubjectDAO;
 import java.io.IOException;
-import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -63,11 +62,11 @@ public class Subject implements XmlID{
         return new SubjectDAO().findAll();
     }
 
-    public void add() {
+    public void add() throws IOException, JAXBException {
         new SubjectDAO(this).add();
     }
 
-    public void remove() {
+    public void remove() throws IOException {
         new SubjectDAO(this).remove();
     }
 
