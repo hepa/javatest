@@ -12,6 +12,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 /**
@@ -29,13 +30,16 @@ public class Class implements XmlID{
     private String name;
 
     @XmlElement(name = "tanev")
+    @XmlJavaTypeAdapter(SchoolYearAdapter.class)
     private SchoolYear schoolYear;
 
-    @XmlElement(name = "osztalyfonok")
+    @XmlElement(name = "tanar")
+    @XmlJavaTypeAdapter(TeacherAdapter.class)
     private Teacher teacher;
 
     @XmlElementWrapper(name = "diakok")
     @XmlElement(name = "diak")
+    @XmlJavaTypeAdapter(StudentAdapter.class)
     private ArrayList<Student> students;
 
     @XmlElementWrapper(name = "orarend")

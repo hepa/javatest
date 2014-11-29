@@ -39,7 +39,7 @@
         <tanar id="1">
             <nev>Kiss László</nev>
             <email>kiss.laszlo@gmail.com</email>
-            <osztaly id="9/D-14/15"></osztaly>            
+            <osztaly>9/D-14/15</osztaly>            
             <fogadoorak>
                 <fogadoora id="1">
                     <nap>hétfő</nap>                    
@@ -83,25 +83,25 @@
         <osztaly id="9/D-14/15">
             <nev>9/D</nev>
             <tanev>2014/2015</tanev>
-            <tanar id="1"/>
+            <tanar>1</tanar>
             <diakok>
-                <diak id="1"/>
-                <diak id="2"/>
+                <diak>1</diak>
+                <diak>2</diak>
             </diakok>
             <orarend>
                 <ora id="1">                    
                     <nap>hétfő</nap>
                     <idopont>10:00:00</idopont>
-                    <tantargy id="K001"/>
-                    <tanar id="1"/>
-                    <terem id="202"/>
+                    <tantargy>K001</tantargy>
+                    <tanar>1</tanar>
+                    <terem>202</terem>
                 </ora>
                 <ora id="2">
                     <nap>hétfő</nap>
                     <idopont>12:00:00</idopont>
-                    <tantargy id="K003"/>
-                    <tanar id="2"/>
-                    <terem id="201"/>
+                    <tantargy>K003</tantargy>
+                    <tanar>2</tanar>
+                    <terem>201</terem>
                 </ora>
             </orarend>
         </osztaly>

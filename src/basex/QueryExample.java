@@ -93,25 +93,18 @@ public final class QueryExample {
         BaseXClient session = new BaseXClient("localhost", 1984, "admin", "admin");
 
 // create query instance
-        String input = "for $x in doc('rendszer')/rendszer/osztalyok/osztaly/orarend/ora[@id='1'] return $x";
+        String input = "for $x in doc('rendszer')/rendszer/osztalyok/osztaly return $x";
 
         BaseXClient.Query query = session.query(input);
-        //while (query.more()) 
+       // while (query.more()) 
         {
 
-            String xml = "<ora id=\"1\">\n" +
-"  <nap>hétfő</nap>\n" +
-"  <idopont>10:00:00</idopont>\n" +
-"  <tantargy id=\"1\"/>\n" +
-"  <tanar id=\"1\">1</tanar>\n" +
-"  <terem id=\"202\">202</terem>\n" +
-"</ora>";
+            String xml=query.next();
             
-            RoomAdapter adapter = new RoomAdapter();
             System.out.println(xml);
-            Lesson t = JAXBUtil.fromXMLElement(Lesson.class, xml);
-            System.out.println(t);
-            JAXBUtil.toXML(t, System.out);
+            Class c = JAXBUtil.fromXMLElement(Class.class, xml);
+            System.out.println(c);
+            JAXBUtil.toXML(c, System.out);
         }
 
         query.close();

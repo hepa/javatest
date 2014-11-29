@@ -14,6 +14,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 /**
@@ -24,7 +25,8 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 @XmlRootElement(name = "tanar")
 public class Teacher extends Person {
 
-    @XmlElement(name = "id")
+    @XmlElement(name = "osztaly")
+    @XmlJavaTypeAdapter(ClassAdapter.class)
     private Class form;
 
     @XmlElementWrapper(name = "fogadoorak")

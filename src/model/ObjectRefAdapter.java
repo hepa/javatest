@@ -19,12 +19,15 @@ public class ObjectRefAdapter<T extends XmlID> extends XmlAdapter<String, T> {
 
     private Class<T> clazz;
 
-    protected ObjectRefAdapter (Class<T> clazz) {
+    protected ObjectRefAdapter(Class<T> clazz) {
         this.clazz = clazz;
     }
 
     @Override
     public T unmarshal(String v) throws Exception {
+        if (v.isEmpty()) {
+            return null;
+        }
         T t = clazz.newInstance();
         t.setId(v);
         return t;
