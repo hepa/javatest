@@ -13,3 +13,6 @@
   projektor=<null>
   ferohely=<null>
 ]
+11:47:26,730 DEBUG Database:55 - getInstance()
+11:47:26,730 DEBUG Database:57 - Create instance.
+11:47:26,730 DEBUG DefaultDAO:57 - Query: doc('rendszer')//fogadoora

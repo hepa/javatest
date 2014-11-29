@@ -6,6 +6,7 @@
 package basex;
 
 import static basex.RunQueries.query;
+import dao.ConsultingHourDAO;
 import dao.RoomDAO;
 import dao.SchoolYearDAO;
 import dao.TeacherDAO;
@@ -20,6 +21,7 @@ import model.SchoolYear;
 import model.Student;
 import model.Teacher;
 import model.Class;
+import model.ConsultingHour;
 import model.Lesson;
 import model.RoomAdapter;
 import org.apache.log4j.PropertyConfigurator;
@@ -92,6 +94,11 @@ public final class QueryExample {
 // create session
         BaseXClient session = new BaseXClient("localhost", 1984, "admin", "admin");
 
+        ConsultingHourDAO chdao = new ConsultingHourDAO();
+        for(ConsultingHour c : chdao.findAll()) {
+            System.out.println(c);
+        }
+        
 // create query instance
         String input = "for $x in doc('rendszer')/rendszer/osztalyok/osztaly return $x";
 
