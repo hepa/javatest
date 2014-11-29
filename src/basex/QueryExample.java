@@ -21,6 +21,7 @@ import model.Student;
 import model.Teacher;
 import model.Class;
 import model.Lesson;
+import model.RoomAdapter;
 import org.apache.log4j.PropertyConfigurator;
 import org.basex.core.BaseXException;
 import org.basex.core.Context;
@@ -103,8 +104,10 @@ public final class QueryExample {
 "  <idopont>10:00:00</idopont>\n" +
 "  <tantargy id=\"1\"/>\n" +
 "  <tanar id=\"1\">1</tanar>\n" +
-"  <terem id=\"202\"/>\n" +
+"  <terem id=\"202\">202</terem>\n" +
 "</ora>";
+            
+            RoomAdapter adapter = new RoomAdapter();
             System.out.println(xml);
             Lesson t = JAXBUtil.fromXMLElement(Lesson.class, xml);
             System.out.println(t);

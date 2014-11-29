@@ -8,6 +8,7 @@ package model;
 import java.time.LocalTime;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -19,8 +20,11 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "fogadoora")
-public class ConsultingHour {
+public class ConsultingHour implements XmlID{
 
+    @XmlAttribute
+    private String id;
+    
     @XmlElement(name = "nap")
     @XmlJavaTypeAdapter(DayAdapter.class)
     private Days day;
@@ -28,6 +32,14 @@ public class ConsultingHour {
     @XmlElement(name = "idopont")
     @XmlJavaTypeAdapter(LocalTimeAdapter.class)
     private LocalTime hour;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public ConsultingHour() {
     }

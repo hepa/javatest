@@ -30,7 +30,7 @@ public class Student extends Person {
         marks = new ArrayList<>();
     }
 
-    public Student(ArrayList<Mark> marks, int id, String name, String email) {
+    public Student(ArrayList<Mark> marks, String id, String name, String email) {
         super(id, name, email);
         this.marks = marks;
     }

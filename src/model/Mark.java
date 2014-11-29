@@ -17,30 +17,37 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  *
  * @author zsolti
  */
-
-@XmlRootElement(name="jegy")
+@XmlRootElement(name = "jegy")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Mark {
-    
+public class Mark implements XmlID {
+
     @XmlAttribute
-    private int id;
-    
-    @XmlElement(name="tantargy")
+    private String id;
+
+    @XmlElement(name = "tantargy")
     private Subject subject;
-    
-    @XmlElement(name="tanev")
+
+    @XmlElement(name = "tanev")
     private SchoolYear schoolYear;
-    
-    @XmlElement(name="erdemjegy")
-    private int mark;
+
+    @XmlElement(name = "erdemjegy")
+    private Integer mark;
 
     public Mark() {
     }
 
-    public Mark(Subject subject, SchoolYear schoolYear, int mark) {
+    public Mark(Subject subject, SchoolYear schoolYear, Integer mark) {
         this.subject = subject;
         this.schoolYear = schoolYear;
         this.mark = mark;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public Subject getSubject() {
@@ -71,7 +78,5 @@ public class Mark {
     public String toString() {
         return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
-    
-    
-    
+
 }

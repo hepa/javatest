@@ -8,11 +8,8 @@ package model;
 import java.time.LocalTime;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAnyElement;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlID;
-import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
@@ -23,7 +20,7 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "ora")
-public class Lesson {
+public class Lesson implements XmlID{
 
     @XmlAttribute
     private String id;
@@ -37,6 +34,7 @@ public class Lesson {
     private LocalTime time;
 
     @XmlElement(name = "tantargy")
+    @XmlJavaTypeAdapter(SubjectAdapter.class)
     private Subject subject;
 
     @XmlElement(name = "tanar")
@@ -44,6 +42,7 @@ public class Lesson {
     private Teacher teacher;
 
     @XmlElement(name = "terem")
+    @XmlJavaTypeAdapter(RoomAdapter.class)
     private Room room;
 
     public Lesson() {

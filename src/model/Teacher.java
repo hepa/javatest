@@ -11,10 +11,8 @@ import java.util.ArrayList;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
@@ -37,7 +35,7 @@ public class Teacher extends Person {
         consultingHours = new ArrayList<>();
     }
 
-    public Teacher(int id, Class form, ArrayList<ConsultingHour> consultingHours, String name, String email) {
+    public Teacher(String id, Class form, ArrayList<ConsultingHour> consultingHours, String name, String email) {
         super(id, name, email);
         this.form = form;
         this.consultingHours = consultingHours;

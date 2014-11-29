@@ -5,17 +5,13 @@
  */
 package model;
 
-import javax.xml.bind.annotation.adapters.XmlAdapter;
-import org.apache.log4j.Logger;
-import util.JAXBUtil;
-
 /**
  *
  * @author zsolti
  */
-public class TeacherAdapter extends ObjectRefAdapter<Teacher> {
-
-    public TeacherAdapter() {
-        super(Teacher.class);
+class SubjectAdapter extends ObjectRefAdapter<Subject> {
+    
+    public SubjectAdapter() {
+        super(Subject.class);
     }
 }

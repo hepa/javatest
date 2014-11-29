@@ -17,10 +17,10 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  * @author zsolti
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Person {
+public class Person implements XmlID{
 
     @XmlAttribute
-    private int id;
+    private String id;
 
     @XmlElement(name = "nev")
     private String name;
@@ -31,17 +31,17 @@ public class Person {
     public Person() {
     }
 
-    public Person(int id, String name, String email) {
+    public Person(String id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

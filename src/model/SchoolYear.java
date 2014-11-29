@@ -26,7 +26,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "tanev")
-public class SchoolYear {
+public class SchoolYear implements XmlID{
 
     @XmlAttribute
     private String id;

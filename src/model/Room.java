@@ -19,10 +19,10 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "terem")
-public class Room {
+public class Room implements XmlID{
 
     @XmlAttribute
-    private int id;
+    private String id;
 
     @XmlElement(name = "labor")
     private Boolean labor;
@@ -36,18 +36,18 @@ public class Room {
     public Room() {
     }
 
-    public Room(int id, boolean labor, boolean projektor, int ferohely) {
+    public Room(String id, boolean labor, boolean projektor, int ferohely) {
         this.id = id;
         this.labor = labor;
         this.projektor = projektor;
         this.ferohely = ferohely;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

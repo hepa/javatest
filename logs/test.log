@@ -1,0 +1,15 @@
+09:58:03,136 DEBUG ObjectRefAdapter:21 - 202
+10:10:20,432 DEBUG ObjectRefAdapter:28 - 202
+10:10:20,432 DEBUG ObjectRefAdapter:31 - model.Room@36aa7bc2[
+  id=202
+  labor=<null>
+  projektor=<null>
+  ferohely=<null>
+]
+10:11:21,207 DEBUG ObjectRefAdapter:28 - 202
+10:11:21,222 DEBUG ObjectRefAdapter:31 - model.Room@36aa7bc2[
+  id=202
+  labor=<null>
+  projektor=<null>
+  ferohely=<null>
+]

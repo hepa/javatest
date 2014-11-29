@@ -21,10 +21,10 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name="szunet")
-public class Holiday {
+public class Holiday implements XmlID{
     
     @XmlAttribute
-    private int id;
+    private String id;
    
     @XmlElement(name="nev")
     private String name;
@@ -40,18 +40,18 @@ public class Holiday {
     public Holiday() {
     }
 
-    public Holiday(int id, String name, LocalDate from, LocalDate to) {
+    public Holiday(String id, String name, LocalDate from, LocalDate to) {
         this.id = id;
         this.name = name;
         this.from = from;
         this.to = to;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
