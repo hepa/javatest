@@ -43,7 +43,7 @@ declare function local:is-value-in-sequence ( $value as xs:string ,$seq as xs:st
    some $nodeInSeq in $seq satisfies $nodeInSeq = $value
 };
 
-(: Az iskola volt diákjai, az utolsó tanévet leszamítva az összes diák :)
+(: Az iskola volt diákjai, avagy az utolsó tanévet leszamítva az összes diák :)
 declare function local:inaktivDiakok() as node()* {
   let $aktualisTanev := local:tanevekId-descending()[1]
   let $diakok := local:diakok($aktualisTanev)
@@ -60,5 +60,26 @@ declare function local:osztalyfonokok($tanev as xs:string) as node()* {
   return $i
 };
 
-let $ofok := local:osztalyfonokok('2014/2015')
+(: Eddig még sosem voltak osztályfőnökök :)
+declare function local:sose-osztalyfonokok($tanev as xs:string) as node()* {
+  let $ofok-listaja := doc('rendszer')//osztalyok/osztaly/osztalyfonok
+  for $i in doc('rendszer')//rendszer/tanarok/tanar
+  where not(local:is-value-in-sequence(data($i/@id), data($ofok-listaja)))
+  return $i
+};
+
+(: Az iskola 3 eddigi legjobb diakja átlagot tekintve :)
+declare function local:top-3-diak() as node()* {
+  let $diakok := db:open('rendszer')//rendszer/diakok/diak  
+  let $diak-atlag := for $i in $diakok
+                      let $atlag := $i/jegyei/jegy/erdemjegy  
+                      return <diak>{$i/nev}<atlag>{avg(data($atlag))}</atlag></diak>
+  
+  let $diak-atlag-desc := for $i in $diak-atlag order by $i/atlag descending return $i
+  
+  for $i in subsequence($diak-atlag-desc, 1, 3)   
+  return $i
+};
+
+let $ofok := local:top-3-diak()
 return $ofok
