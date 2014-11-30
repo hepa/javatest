@@ -96,6 +96,38 @@
                 </jegy>
             </jegyei>
         </diak>
+        <diak id="3">
+            <nev>Horváth Ádám</nev>
+            <email>adam.horvath@gmail.com</email>            
+        </diak>
+        <diak id="4">
+            <nev>Lepeták Péter</nev>
+            <email>peter.lepetak@gmail.com</email>            
+        </diak>
+        <diak id="5">
+            <nev>Szentpéteri Nándor</nev>
+            <email>nandor.szentpeteri@gmail.com</email>            
+        </diak>
+        <diak id="6">
+            <nev>Tőkés Alex</nev>
+            <email>alex.tokes@gmail.com</email>            
+        </diak>
+        <diak id="7">
+            <nev>Nagy László</nev>
+            <email>laszlo.nagy@gmail.com</email>            
+        </diak>
+        <diak id="8">
+            <nev>Veress Henrik</nev>
+            <email>henrik.veress@gmail.com</email>            
+        </diak>
+        <diak id="9">
+            <nev>Kohut Dániel</nev>
+            <email>daniel.kohut@gmail.com</email>            
+        </diak>
+        <diak id="10">
+            <nev>Haluska Gergő</nev>
+            <email>gergo.haluska@gmail.com</email>            
+        </diak>
     </diakok>
     <tanarok>
         <tanar id="1">
@@ -142,9 +174,9 @@
         </terem>
     </termek>
     <osztalyok>
-        <osztaly id="9/D-14/15">
+        <osztaly id="9/D-12/13">
             <nev>9/D</nev>
-            <tanev>2014/2015</tanev>
+            <tanev>2013/2014</tanev>
             <osztalyfonok>1</osztalyfonok>
             <diakok>
                 <diak>1</diak>
@@ -154,6 +186,31 @@
                 <ora id="1">                    
                     <nap>hétfő</nap>
                     <idopont>10:00:00</idopont>
+                    <tantargy>K004</tantargy>
+                    <tanar>1</tanar>
+                    <terem>202</terem>
+                </ora>
+                <ora id="2">
+                    <nap>hétfő</nap>
+                    <idopont>10:00:00</idopont>
+                    <tantargy>K002</tantargy>
+                    <tanar>2</tanar>
+                    <terem>201</terem>
+                </ora>
+            </orarend>
+        </osztaly>
+        <osztaly id="10/D-13/14">
+            <nev>10/D</nev>
+            <tanev>2013/2014</tanev>
+            <osztalyfonok>1</osztalyfonok>
+            <diakok>
+                <diak>1</diak>
+                <diak>2</diak>
+            </diakok>
+            <orarend>
+                <ora id="1">                    
+                    <nap>hétfő</nap>
+                    <idopont>08:00:00</idopont>
                     <tantargy>K001</tantargy>
                     <tanar>1</tanar>
                     <terem>202</terem>
@@ -172,5 +229,12 @@
         <tantargy id="K001" nev="Matematika"/>
         <tantargy id="K002" nev="Irodalom"/>
         <tantargy id="K003" nev="Informatika"/>
+        <tantargy id="K004" nev="Nyelvtan"/>
+        <tantargy id="K005" nev="Programozás elmélete"/>
+        <tantargy id="K006" nev="Programozás gyakorlata"/>
+        <tantargy id="K007" nev="Adatbázis"/>
+        <tantargy id="K008" nev="Operációs rendszerek"/>
+        <tantargy id="K009" nev="Angol"/>
+        <tantargy id="K010" nev="Testnevelés"/>
     </tantargyak>
 </rendszer>
