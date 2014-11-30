@@ -176,11 +176,14 @@
     <osztalyok>
         <osztaly id="9/D-12/13">
             <nev>9/D</nev>
-            <tanev>2013/2014</tanev>
+            <tanev>2012/2013</tanev>
             <osztalyfonok>1</osztalyfonok>
             <diakok>
                 <diak>1</diak>
                 <diak>2</diak>
+                <diak>3</diak>
+                <diak>4</diak>
+                <diak>5</diak>
             </diakok>
             <orarend>
                 <ora id="1">                    
