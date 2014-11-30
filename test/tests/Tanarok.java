@@ -57,12 +57,12 @@ public class Tanarok {
     @Test
     public void tanarok() throws IOException, JAXBException {
         boolean volt = false;
-        String input = "for $x in doc('rendszer')/rendszer/tanarok/tanar[@id='1'] return $x";
+        String input = "for $x in doc('rendszer')/rendszer/tanarok/tanar[@id='1'] return $x";        
         BaseXClient.Query query = session.query(input);        
         while (query.more()) {
             volt = true;
             String xml = query.next();            
-            Teacher t = JAXBUtil.fromXMLElement(Teacher.class, xml);            
+            Teacher t = JAXBUtil.fromXMLElement(Teacher.class, xml);                        
             assertEquals("Kiss László", t.getName());
             assertEquals("kiss.laszlo@gmail.com", t.getEmail());
             assertEquals("9/D-14/15", t.getForm().getId());

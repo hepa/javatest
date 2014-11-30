@@ -1,6 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rendszer>
     <tanevek>
+        <tanev id="2012/2013">
+            <mettol> 2012-09-01 </mettol>
+            <meddig> 2013-06-27 </meddig>
+            <szunetek>
+                <szunet id="1">
+                    <nev>Őszi szünet</nev>
+                    <mettol> 2012-10-27 </mettol>
+                    <meddig> 2012-10-31 </meddig>
+                </szunet>
+                <szunet id="2">
+                    <nev>Téli szünet</nev>
+                    <mettol> 2012-12-22 </mettol>
+                    <meddig> 2013-01-04 </meddig>
+                </szunet>
+                <szunet id="3">
+                    <nev>Tavaszi szünet</nev>
+                    <mettol> 2013-04-18 </mettol>
+                    <meddig> 2013-01-27 </meddig>
+                </szunet>
+                <szunet id="4">
+                    <nev>Nyári szünet</nev>
+                    <mettol> 2013-06-30 </mettol>
+                    <meddig> 2013-08-31 </meddig>
+                </szunet>
+            </szunetek>
+        </tanev>
+        <tanev id="2013/2014">
+            <mettol> 2013-09-01 </mettol>
+            <meddig> 2014-06-27 </meddig>
+            <szunetek>
+                <szunet id="1">
+                    <nev>Őszi szünet</nev>
+                    <mettol> 2013-10-27 </mettol>
+                    <meddig> 2013-10-31 </meddig>
+                </szunet>
+                <szunet id="2">
+                    <nev>Téli szünet</nev>
+                    <mettol> 2013-12-22 </mettol>
+                    <meddig> 2014-01-04 </meddig>
+                </szunet>
+                <szunet id="3">
+                    <nev>Tavaszi szünet</nev>
+                    <mettol> 2014-04-18 </mettol>
+                    <meddig> 2014-01-27 </meddig>
+                </szunet>
+                <szunet id="4">
+                    <nev>Nyári szünet</nev>
+                    <mettol> 2014-06-30 </mettol>
+                    <meddig> 2014-08-31 </meddig>
+                </szunet>
+            </szunetek>
+        </tanev>
         <tanev id="2014/2015">
             <mettol> 2014-09-01 </mettol>
             <meddig> 2015-06-30 </meddig>
@@ -14,6 +66,16 @@
                     <nev>Téli szünet</nev>
                     <mettol> 2014-12-22 </mettol>
                     <meddig> 2015-01-04 </meddig>
+                </szunet>
+                <szunet id="3">
+                    <nev>Tavaszi szünet</nev>
+                    <mettol> 2015-04-03 </mettol>
+                    <meddig> 2015-01-10 </meddig>
+                </szunet>
+                <szunet id="4">
+                    <nev>Nyári szünet</nev>
+                    <mettol> 2015-06-30 </mettol>
+                    <meddig> 2015-08-31 </meddig>
                 </szunet>
             </szunetek>
         </tanev>
@@ -83,7 +145,7 @@
         <osztaly id="9/D-14/15">
             <nev>9/D</nev>
             <tanev>2014/2015</tanev>
-            <tanar>1</tanar>
+            <osztalyfonok>1</osztalyfonok>
             <diakok>
                 <diak>1</diak>
                 <diak>2</diak>

@@ -7,6 +7,7 @@ package tests;
 
 import util.BaseXClient;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.xml.bind.JAXBException;
 import model.Student;
 import org.junit.After;
@@ -24,6 +25,7 @@ import util.JAXBUtil;
 public class Diakok {
 
     private BaseXClient session;
+    private Student s;
 
     public Diakok() {
     }
@@ -38,7 +40,7 @@ public class Diakok {
 
     @Before
     public void setUp() throws IOException {
-        session = new BaseXClient("localhost", 1984, "admin", "admin");
+        session = new BaseXClient("localhost", 1984, "admin", "admin");        
     }
 
     @After
@@ -50,31 +52,25 @@ public class Diakok {
     // The methods must be annotated with annotation @Test. For example:
     //
     @Test
-    public void diakok() throws IOException, JAXBException {
-        boolean volt = false;
-        String input = "for $x in doc('rendszer')/rendszer/diakok/diak[@id='1'] return $x";
-        BaseXClient.Query query = session.query(input);        
-        while (query.more()) {
-            volt = true;
-            String xml = query.next();            
-            Student s = JAXBUtil.fromXMLElement(Student.class, xml);            
-            assertEquals(s.getName(), "Reményi Szabolcs");
-            assertEquals(s.getEmail(), "szabolcs.remenyi@gmail.com");
-        }        
-        assertEquals("Nem volt ilyen diak. (Reményi Szabolcs)", volt, true);
+    public void diakok() throws IOException, JAXBException {        
+        String id = "1";        
+        assertNull(s);
+        s = Student.find(id);
+        assertNotNull("No results found for id=" + id + ".", s);
+        assertEquals("Reményi Szabolcs", s.getName());
+        assertEquals("szabolcs.remenyi@gmail.com", s.getEmail());        
         
-        volt = false;
-        input = "for $x in doc('rendszer')/rendszer/diakok/diak[@id='2'] return $x";
-        query = session.query(input);        
-        while (query.more()) {
-            volt = true;
-            String xml = query.next();            
-            Student s = JAXBUtil.fromXMLElement(Student.class, xml);            
-            assertEquals(s.getName(), "Fehérvári Zsolt");
-            assertEquals(s.getEmail(), "zsoltty91@hotmail.com");
-        }        
-        assertEquals("Nem volt ilyen diak. (Fehérvári Zsolt)", volt, true);
-        query.close();
+        s = null;
+        id = "2";   
+        assertNull(s);
+        s = Student.find(id);
+        assertNotNull("No results found for id=" + id + ".", s);
+        assertEquals("Fehérvári Zsolt", s.getName());
+        assertEquals("zsoltty91@hotmail.com", s.getEmail());         
+        
+        ArrayList<Student> students = new ArrayList<>();
+        assertEquals(0, students.size());
+        students = Student.findAll();
+        assertEquals(2, students.size());        
     }
 }
-

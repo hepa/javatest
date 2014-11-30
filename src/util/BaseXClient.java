@@ -100,6 +100,7 @@ public final class BaseXClient {
         if (!ok()) {
             throw new IOException(info);
         }
+        
     }
 
     /**
