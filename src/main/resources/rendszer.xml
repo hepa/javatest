@@ -227,6 +227,31 @@
                 </ora>
             </orarend>
         </osztaly>
+        <osztaly id="11/D-13/14">
+            <nev>11/D</nev>
+            <tanev>2014/2015</tanev>
+            <osztalyfonok>1</osztalyfonok>
+            <diakok>
+                <diak>1</diak>
+                <diak>2</diak>
+            </diakok>
+            <orarend>
+                <ora id="1">                    
+                    <nap>hétfő</nap>
+                    <idopont>08:00:00</idopont>
+                    <tantargy>K001</tantargy>
+                    <tanar>1</tanar>
+                    <terem>202</terem>
+                </ora>
+                <ora id="2">
+                    <nap>hétfő</nap>
+                    <idopont>12:00:00</idopont>
+                    <tantargy>K003</tantargy>
+                    <tanar>2</tanar>
+                    <terem>201</terem>
+                </ora>
+            </orarend>
+        </osztaly>
     </osztalyok>
     <tantargyak>
         <tantargy id="K001" nev="Matematika"/>
