@@ -11,8 +11,6 @@ import java.io.IOException;
 import java.time.LocalTime;
 import javax.xml.bind.JAXBException;
 import model.Days;
-import model.Student;
-import model.Class;
 import model.Teacher;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -65,7 +63,6 @@ public class Tanarok {
             Teacher t = JAXBUtil.fromXMLElement(Teacher.class, xml);                        
             assertEquals("Kiss László", t.getName());
             assertEquals("kiss.laszlo@gmail.com", t.getEmail());
-            assertEquals("9/D-14/15", t.getForm().getId());
             assertEquals(t.getConsultingHours().size(), 2);
             assertEquals(t.getConsultingHours().get(0).getDay(), Days.HÉTFŐ);
             assertEquals(t.getConsultingHours().get(0).getHour(), LocalTime.parse("08:00:00"));
