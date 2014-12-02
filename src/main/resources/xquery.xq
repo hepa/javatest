@@ -7,6 +7,12 @@ declare function local:osztalyok($tanev as xs:string) as node()* {
   return $i
 };
 
+declare function local:aktivOsztalyok() as node()* {
+  let $aktualisTanev := local:tanevekId-descending()[1]
+  let $osztalyok := local:osztalyok($aktualisTanev)
+  return $osztalyok  
+};
+
 (: Az adott évben az iskolába járó diákok listája, név szerint növekvő sorrendben :)
 declare function local:diakok($tanev as xs:string) as node()* {
   for $i in doc('rendszer')//rendszer/osztalyok/osztaly
@@ -81,5 +87,17 @@ declare function local:top-3-diak() as node()* {
   return $i
 };
 
-let $ofok := local:top-3-diak()
+declare function local:top-3-diak($tanev as xs:string) as node()* {
+  let $diakok := local:diakok($tanev)
+  let $diak-atlag := for $i in $diakok
+                      let $atlag := $i/jegyei/jegy/erdemjegy  
+                      return <diak>{$i/nev}<atlag>{avg(data($atlag))}</atlag></diak>
+  
+  let $diak-atlag-desc := for $i in $diak-atlag order by $i/atlag descending return $i
+  
+  for $i in subsequence($diak-atlag-desc, 1, 3)   
+  return $i  
+};
+
+let $ofok := local:aktivOsztalyok()
 return $ofok

@@ -239,7 +239,7 @@
     <xs:element name="osztalyok">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="osztaly"></xs:element>
+                <xs:element ref="osztaly" minOccurs="1" maxOccurs="unbounded"></xs:element>
             </xs:sequence>
         </xs:complexType>    
         <xs:key name="osztaly-id">
