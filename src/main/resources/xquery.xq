@@ -100,8 +100,8 @@ declare function inf:top-3-diak($tanev as xs:string) as node()* {
   return $i  
 };
 
-declare function inf:max-id-szunet($tanev as xs:string) as xs:double {
-  let $id := db:open('rendszer')/rendszer/tanevek/tanev[@id=$tanev]/szunetek/szunet/@id
+declare function inf:max-id-szunet() as xs:double {
+  let $id := db:open('rendszer')/rendszer/tanevek/tanev/szunetek/szunet/@id
   let $result := if (fn:empty(fn:max($id))) then 0 else fn:max($id)
   return  $result
 };
@@ -118,20 +118,20 @@ declare function inf:max-id-tanar() as xs:double {
   return  $result
 };
 
-declare function inf:max-id-jegy($diak-id as xs:integer) as xs:double {
-  let $id := db:open('rendszer')/rendszer/diakok/diak[@id=$diak-id]/jegyei/jegy/@id
+declare function inf:max-id-jegy() as xs:double {
+  let $id := db:open('rendszer')/rendszer/diakok/diak/jegyei/jegy/@id
   let $result := if (fn:empty(fn:max($id))) then 0 else fn:max($id)
   return  $result
 };
 
-declare function inf:max-id-fogadoora($tanar-id as xs:integer) as xs:double {
-  let $id := db:open('rendszer')/rendszer/tanarok/tanar[@id=$tanar-id]/fogadoorak/fogadoora/@id
+declare function inf:max-id-fogadoora() as xs:double {
+  let $id := db:open('rendszer')/rendszer/tanarok/tanar/fogadoorak/fogadoora/@id
   let $result := if (fn:empty(fn:max($id))) then 0 else fn:max($id)
   return  $result
 };
 
-declare function inf:max-id-ora($osztaly-id as xs:string) as xs:double {
-  let $id := db:open('rendszer')/rendszer/osztalyok/osztaly[@id=$osztaly-id]/orarend/ora/@id
+declare function inf:max-id-ora() as xs:double {
+  let $id := db:open('rendszer')/rendszer/osztalyok/osztaly/orarend/ora/@id
   let $result := if (fn:empty(fn:max($id))) then 0 else fn:max($id)
   return  $result
 };
