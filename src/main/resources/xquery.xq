@@ -135,3 +135,9 @@ declare function inf:max-id-ora() as xs:double {
   let $result := if (fn:empty(fn:max($id))) then 0 else fn:max($id)
   return  $result
 };
+
+declare function inf:max-id-tantargy() as xs:double {
+  let $id := db:open('rendszer')/rendszer/tantargyak/tantargy/@id
+  let $result := if (fn:empty(fn:max($id))) then 0 else fn:max($id)
+  return  $result
+};
