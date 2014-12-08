@@ -99,5 +99,41 @@ declare function local:top-3-diak($tanev as xs:string) as node()* {
   return $i  
 };
 
-let $ofok := local:aktivOsztalyok()
+declare function local:max-id-szunet($tanev as xs:string) as xs:double {
+  let $id := db:open('rendszer')/rendszer/tanevek/tanev[@id=$tanev]/szunetek/szunet/@id
+  let $result := if (fn:empty(fn:max($id))) then 0 else fn:max($id)
+  return  $result
+};
+
+declare function local:max-id-diak() as xs:double {
+  let $id := db:open('rendszer')/rendszer/diakok/diak/@id
+  let $result := if (fn:empty(fn:max($id))) then 0 else fn:max($id)
+  return  $result
+};
+
+declare function local:max-id-tanar() as xs:double {
+  let $id := db:open('rendszer')/rendszer/tanarok/tanar/@id
+  let $result := if (fn:empty(fn:max($id))) then 0 else fn:max($id)
+  return  $result
+};
+
+declare function local:max-id-jegy($diak-id as xs:integer) as xs:double {
+  let $id := db:open('rendszer')/rendszer/diakok/diak[@id=$diak-id]/jegyei/jegy/@id
+  let $result := if (fn:empty(fn:max($id))) then 0 else fn:max($id)
+  return  $result
+};
+
+declare function local:max-id-fogadoora($tanar-id as xs:integer) as xs:double {
+  let $id := db:open('rendszer')/rendszer/tanarok/tanar[@id=$tanar-id]/fogadoorak/fogadoora/@id
+  let $result := if (fn:empty(fn:max($id))) then 0 else fn:max($id)
+  return  $result
+};
+
+declare function local:max-id-ora($osztaly-id as xs:string) as xs:double {
+  let $id := db:open('rendszer')/rendszer/osztalyok/osztaly[@id=$osztaly-id]/orarend/ora/@id
+  let $result := if (fn:empty(fn:max($id))) then 0 else fn:max($id)
+  return  $result
+};
+
+let $ofok := local:max-id-ora('11/C-14/15') 
 return $ofok
