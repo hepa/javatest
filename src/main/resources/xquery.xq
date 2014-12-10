@@ -26,6 +26,16 @@ declare function inf:diakok($tanev as xs:string) as node()* {
   return $k
 };
 
+declare function inf:diakok-in-osztaly($osztaly-id as xs:string) as node()* {
+  let $diak-id := db:open('rendszer')/rendszer/osztalyok/osztaly[@id=$osztaly-id]/diakok/diak
+  let $diakok := for $i in $diak-id 
+  for $j in db:open('rendszer')/rendszer/diakok/diak
+  where $i/. = data($j/@id)
+  return $j
+  
+  return $diakok
+};
+
 (: A tanévek csökkenő sorrendben. :)
 declare function inf:tanevekId-descending() as xs:token* {
   for $i in doc('rendszer')//rendszer/tanevek/tanev
